@@ -83,7 +83,7 @@ const Register=()=> {
 
             <Divider variant ="middle"/>
             <div className="icon">
-                    <div className="signwith"><br/>SIGN UP WITH</div>
+                    <div className="signwith"><br/>SIGN UP WITH...</div>
                     <div className="social">
                         <a href="#"><i className="fab fa-facebook-square"></i></a>
                         <a href="#"><i className="fab fa-twitter-square"></i></a>
