@@ -39,7 +39,7 @@ const Login=()=> {
             </div>
             
            <Button variant="outline" color="primary">
-                Forget Password</Button>
+                Forget Password?</Button>
             <Button variant="contained" color="primary">Log In</Button>
             <p className="text-center">
                 <Link to="/register" className="text-black-50">
