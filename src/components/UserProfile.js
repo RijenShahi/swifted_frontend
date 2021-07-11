@@ -54,8 +54,9 @@ const UserProfile = () => {
                                         <label>Your cart is empty</label>
                                         <img src={emptycart} alt="emptycart"/>
                                         {/* <Link to="/shop" className="text-black-50"></Link> */}
-                                        <Button variant="contained" color="primary">Shop Now</Button>
+                                        <Button variant="contained" color="primary">Shop Now!</Button>
                                     </div>
+            
                                 </div>
 
                                 <div className="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
