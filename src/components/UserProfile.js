@@ -38,7 +38,7 @@ const UserProfile = () => {
                         </div>
 
                         <div className="col-md-2">
-                            <Button variant="contained" color="primary">Edit Profile</Button>
+                            <Link to="/editprofile" className="text-black-50"><Button variant="contained" color="primary">Edit Profile</Button></Link>
                             {/* <input type ="submit" className="profile-edit-btn" name="btnAddMore" values="Edit Profile"/> */}
 
                         </div>
