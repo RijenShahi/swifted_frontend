@@ -28,12 +28,15 @@ class Login extends Component {
         console.log(userData)
         axios.post("http://localhost:90/swiftedAPI/userProfile/login", userData)
             .then((response)=>{
+              
                 if (response.data.success === true) {
                     swal({
                         title: "Sucess",
                         test: "User Logined",
                         icon: "Success"
                     })
+                    localStorage.setItem('token',response.data.token);
+                    localStorage.setItem('user',JSON.stringify(response.data.data));
                     window.location.href = "/userprofile"
                 }
             })
