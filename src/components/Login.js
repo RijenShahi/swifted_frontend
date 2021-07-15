@@ -80,7 +80,7 @@ class Login extends Component {
                 
             <Button variant="outline" color="primary">
                     Forget Password?</Button>
-                <Button variant="contained" color="primary" onClick= {this.Login}>Log In</Button>
+                <Button id="login" variant="contained" color="primary" onClick= {this.Login}>Log In</Button>
                 <p className="text-center">
                     <Link to="/register" className="text-black-50">
                         <h5>Don't Have An Account?</h5>

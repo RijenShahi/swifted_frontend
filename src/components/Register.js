@@ -122,7 +122,8 @@ class Register extends Component {
 
                 <FormControlLabel
                     control={
-                        <Checkbox
+                        <Checkbox 
+                        id="checkbox-terms"
                             icon={<CheckBoxOutlineBlankIcon fontSize="samll"/>}
                             checkedIcon={<CheckBoxIcon fontSize="small"/>}
                             name="checkedI"
@@ -135,7 +136,7 @@ class Register extends Component {
                 
                 <Link to="/login" className="text-black-50"><Button variant="outline" color="primary">
                     Already have an account?</Button></Link>
-                <Button variant="contained" color="primary" onClick= {this.Register}>Create Account</Button>
+                <Button id="register" variant="contained" color="primary" onClick= {this.Register}>Create Account</Button>
 
                 <Divider variant ="middle"/>
                 <div className="icon">
