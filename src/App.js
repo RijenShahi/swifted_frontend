@@ -7,8 +7,10 @@ import Login from './components/Login';
 import UserProfile from './components/UserProfile';
 import EditProfile from './components/EditProfile';
 import Footer from './components/Footer'
+import AddProducts from './components/AddProducts'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container } from '@material-ui/core';
+import UpdateProduct from './components/UpdateProduct';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/userprofile" exact component={UserProfile} />
           <Route path="/editprofile" exact component={EditProfile} />
+          <Route path="/addproduct" exact component={AddProducts} />
+          <Route path="/updateProduct" exact component={UpdateProduct} />
         </Switch>
         <Footer/>
       </Router>

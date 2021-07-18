@@ -4,13 +4,17 @@ import {Container,Row,Col} from 'react-bootstrap';
 import swal from 'sweetalert'
 
 
+
 const AddProducts = () => {
     let [product,setProduct] = useState({
-        "pName":"",
-        "pDesc":"",
-        "pPrice":"",
-        "pRating":"",
-        "pImage":"",
+        "productName":"",
+        "productDescription":"",
+        "productVendor":"",
+        "productCategory":"",
+        "productPrice":"",
+        "productStocks":"",
+        "productImage":"",
+        "productRating":"",
         "config":{
             "headers":{
                 "authorization":`Bearer ${localStorage.getItem("token")}`
@@ -38,13 +42,16 @@ const AddProducts = () => {
         
         e.preventDefault();
         var fData = new FormData();
-        fData.append("pName",product.pName)
-        fData.append("pDesc",product.pDesc)
-        fData.append("pRating",product.pRating)
-        fData.append("pPrice",product.pPrice)
-        fData.append("pImage",product.pImage)
-        console.log(product)
-        axios.post("http://localhost:90/product/insert",fData,product.config)
+        fData.append("productName",product.productName)
+        fData.append("productDescription",product.productDescription)
+        fData.append("productVendor",product.productVendor)
+        fData.append("productCategory",product.productCategory)
+        fData.append("productPrice",product.productPrice)
+        fData.append("productStocks",product.productStocks)
+        fData.append("productImage",product.productImage)
+        fData.append("productRating",product.productRating)
+       
+        axios.post("http://localhost:90/swiftedAPI/products/insert",fData,product.config)
         .then((response)=>{
            
             if(response.data.success == true)
@@ -77,27 +84,44 @@ const AddProducts = () => {
                         <form method="post" className="mt-2 p-3 " style={{boxShadow:"0px 0px 6px rgba(0,0,0,0.6)"}} onSubmit={addProduct}>
                                <div className="form-group">
                                   <label> Product Name </label>  
-                                  <input type="text" className="form-control" name="pName" value={product['pName']} onChange={(event)=>{changeHandler(event)}} required/> 
-                                </div> 
-                                <div className="form-group">
-                                  <label> Product Price </label>  
-                                  <input type="text" className="form-control" name="pPrice" value={product['pPrice']} onChange={(event)=>{changeHandler(event)}} required/> 
-                                </div> 
-                                <div className="form-group">
-                                  <label> Rating </label>   
-                                  <input type="text" className="form-control" name="pRating" value={product['pRating']} onChange={(event)=>{changeHandler(event)}} required/> 
-                                </div> 
-                                <div className="form-group">
-                                  <label> Product Image </label>  
-                                  <input type="file" accept="image/*" className="form-control-file" name="pImage"  onChange={(event)=>{fileHandler(event)}} required/> 
+                                  <input type="text" className="form-control" name="productName" value={product['productName']} onChange={(event)=>{changeHandler(event)}} required/> 
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Description </label>  
-                                  <textarea className="form-control" name="pDesc" value={product['pDesc']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                  <input type="text" className="form-control" name="productDescription" value={product['productDescription']} onChange={(event)=>{changeHandler(event)}} required/> 
                                 </div> 
+                                <div className="form-group">
+                                  <label> Product Vendor </label>   
+                                  <input type="text" className="form-control" name="productVendor" value={product['productVendor']} onChange={(event)=>{changeHandler(event)}} required/> 
+                                </div> 
+                                <div className="form-group">
+                                  <label> Product Image </label>  
+                                  <input type="file" accept="image/*" className="form-control-file" name="productImage"  onChange={(event)=>{fileHandler(event)}} required/> 
+                                </div> 
+                                <div className="form-group">
+                                  <label> Product Categories </label>  
+                                  <textarea className="form-control" name="productCategory" value={product['productCategory']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                </div> 
+                                <div className="form-group">
+                                  <label> Product Price </label>  
+                                  <textarea className="form-control" name="productPrice" value={product['productPrice']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                </div> 
+                                <div className="form-group">
+                                  <label> Product Stocks </label>  
+                                  <textarea className="form-control" name="productStocks" value={product['productStocks']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                </div> 
+                                <div className="form-group">
+                                  <label> Product Rating </label>  
+                                  <textarea className="form-control" name="productRating" value={product['productRating']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                </div> 
+
+
                                 <div className="text-center">
                                     <button className="btn btn-primary w-50 btn-lg" name="add_product" type="submit"> Add Product </button>
                                 </div>
+
+                                
+
                         </form>
                     </Col>
                 </Row>

@@ -15,9 +15,9 @@ const RetrieveUpdateDelete = (props) => {
     })
 
     useEffect(() =>{
-        axios.get("http://localhost:90/product/showAll")
+        axios.get("http://localhost:90/swiftedAPI/products/displayProducts",auth.config)
         .then((response)=>{
-            console.log(response);
+            console.log(response)
             setProduct(
                 response.data.data
             )
