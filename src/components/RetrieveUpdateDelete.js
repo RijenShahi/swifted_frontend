@@ -84,7 +84,7 @@ const RetrieveUpdateDelete = (props) => {
                                         <button className="btn btn-danger btn-block" name="update" data-toggle="modal" data-target={`#delete${product._id}`}> Delete</button>
                                         </Col>
                                     </Row>
-                                    <UpdateProduct product={product} key={product._id}/>
+                                    <UpdateProduct products={product} key={product._id}/>
                                     <div class="modal fade" id={`delete${product._id}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">

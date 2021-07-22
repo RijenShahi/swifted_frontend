@@ -1,4 +1,6 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import Navbar from './components/Navbar';
 import Navrbartop from './components/Navbartop';
 import NavItem from './components/NavItem';
@@ -11,6 +13,7 @@ import AddProducts from './components/AddProducts'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 import UpdateProduct from './components/UpdateProduct';
+import RetrieveUpdateDelete from './components/RetrieveUpdateDelete';
 
 
 function App() {
@@ -26,7 +29,7 @@ function App() {
           <Route path="/userprofile" exact component={UserProfile} />
           <Route path="/editprofile" exact component={EditProfile} />
           <Route path="/addproduct" exact component={AddProducts} />
-          <Route path="/updateProduct" exact component={UpdateProduct} />
+          <Route path="/products" exact component={RetrieveUpdateDelete} />
         </Switch>
         <Footer/>
       </Router>
