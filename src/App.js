@@ -18,6 +18,7 @@ import Vendor from "./components/Pages/Vendor";
 import { Container } from "@material-ui/core";
 import RetrieveUpdateDelete from "./components/Pages/RetrieveUpdateDelete";
 import UpdateProduct from "./components/Pages/UpdateProduct";
+import VendorRequest from "./components/vendor/vendorRequest";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/myCart" exact component={MyCart} />
           <Route path="/wishlist" exact component={Wishlist} />
           <Route path="/vendor" exact component={Vendor} />
+          <Route path="/requestVendor" exact component={VendorRequest} />
         </Switch>
         <Footer />
       </Router>
