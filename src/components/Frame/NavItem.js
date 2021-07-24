@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
-import Dropdown from './Dropdown';
+import '../../App.css';
+import Dropdown from '../Frame/Dropdown/Dropdown';
 
 function Navbar() {
     const [click, setClick] = useState(false);
@@ -74,13 +74,13 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
                             About
                         </Link>
                     </li>
                     <li className='nav-item'>
                         <Link
-                            to='/contact-us'
+                            to='/contact'
                             className='nav-links'
                             onClick={closeMobileMenu}
                         >

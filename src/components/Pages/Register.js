@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../App.css';
+import '../../App.css';
 import {TextField, Button, Divider} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -7,7 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 // import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import loginimg from "../images/signup.png"
+import loginimg from "../../images/signup.png"
 import axios from 'axios';
 import swal from 'sweetalert';
 

@@ -96,7 +96,7 @@ function CardInfo(props) {
   let token = localStorage.getItem("token")
   return (
     <div className='cards'>
-      <h1 className="cartheading">Optical Details</h1>
+      <h1 className="cartheading">Product Details</h1>
       <Container>
         <Row>
           <Col lg={4} className="d-none d-md-block"></Col>

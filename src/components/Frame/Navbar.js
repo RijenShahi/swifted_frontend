@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
 function Navbar() {
     const [click, setClick] = useState(false);
@@ -53,7 +53,7 @@ function Navbar() {
                         <Link to="/wishlist" className="text-black-50">
                             <i className="ni far fa-heart"></i>
                         </Link>
-                        <Link to="/cart" className="text-black-50">
+                        <Link to="/mycart" className="text-black-50">
                             <i class="ni fas fa-shopping-cart"></i>
                         </Link>
                     </div>

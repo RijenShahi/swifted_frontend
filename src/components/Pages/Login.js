@@ -1,12 +1,12 @@
 import React, { Component} from 'react'
-import '../App.css';
+import '../../App.css';
 import { TextField, Button, Divider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import loginimg from "../images/login1.PNG"
+import loginimg from "../../images/login1.PNG"
 // import PersonIcon from '@material-ui/icons/Person';
 import axios from 'axios';
 import swal from 'sweetalert';
