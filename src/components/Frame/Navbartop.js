@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import Dropdown from './AccountDropdown';
+import Dropdown from '../Frame/Dropdown/AccountDropdown';
 
 function Navbartop() {
     const [click, setClick] = useState(false);

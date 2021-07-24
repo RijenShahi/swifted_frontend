@@ -56,7 +56,6 @@ const RetrieveUpdateDelete = (props) => {
         <React.Fragment>
             <Container fluid>
                 <Row>
-                   
 
                     {
                         products.map((product)=>{

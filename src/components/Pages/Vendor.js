@@ -31,13 +31,11 @@ const Vendor = () => {
                         <TabPanel value={value} index={1}>
                            <RetrieveUpdateDelete/>
                         </TabPanel>
-                        <AppBar position="static" style={{background:"green"}}>
+                        <AppBar position="static" style={{background:"Orange"}}>
                             <Tabs
                                value={value}
-                               onChange={handleChange}
-                               
-                            >
-                                
+                               onChange={handleChange}  
+                            > 
                                 <Tab icon={<AiFillPlusCircle style={{fontSize:"50px"}}/>} label="Add Product"/>
                                 <Tab icon={<MdTimer style={{fontSize:"50px"}}/>} label="Update/Delete Product"/>
                                 

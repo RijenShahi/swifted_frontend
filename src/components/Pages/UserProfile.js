@@ -1,8 +1,8 @@
 import React from 'react'
 import {Button} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import profile from "../images/profile.png";
-import emptycart from "../images/empty.png";
+import profile from "../../images/profile.png";
+import emptycart from "../../images/empty.png";
 
 
 const UserProfile = () => {
