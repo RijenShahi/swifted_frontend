@@ -33,7 +33,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className='navbarr fixed-top'>
+            <nav className='navbarr'>
                 <div className='navbar-container'>
                     <Link to='/' className='navbar-logo' onClick=
                         {closeMobileMenu}>

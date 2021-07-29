@@ -220,8 +220,25 @@
   
   /*  */
 
-  /* Navbar End */
-  
+/*HomeSection*/
+
+.home-container{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+  /* Login */
+  .form{
+    padding: 20px;
+    justify-content: center;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.19);
+    height: 50%;
+    width: 50%;
+  }
+
 .fab{
   list-style-type: none;
   display: inline-block;
@@ -235,6 +252,11 @@
 }
 
 
+.img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .icon{
   display: flex;
   flex-direction: column;
@@ -262,9 +284,6 @@
   font-size: 15px;
 }
 
-.icon_class>.MuiSvgIcon-root{
-  color:#027068
-}
 
 /*Button*/
 :root{
@@ -309,6 +328,7 @@
   color: #242424;
   transition: all 0.3s ease-out;
 }
+
 /* User Profile */
 .emp-profile{
   padding: 3%;
@@ -743,4 +763,9 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
+}
+
+
+.rowNav{
+ float: center;
 }

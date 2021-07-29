@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Home from './components/Pages/Home';
 import Navbar from './components/Frame/Navbar';
 import Navrbartop from './components/Frame/Navbartop';
 import NavItem from './components/Frame/NavItem';
@@ -15,18 +16,19 @@ import Shop from './components/Pages/Shop';
 import MyCart from './components/Pages/MyCart';
 import Wishlist from './components/Pages/Wishlist';
 import Vendor from './components/Pages/Vendor';
-import { Container } from '@material-ui/core';
 import UpdateProduct from './components/Pages/UpdateProduct';
+import VendorRequest from './components/Vendor/vendorRequest';
+import Checkout from './components/Pages/Checkout';
+import NavFull from './components/Navbar/NavFull';
 
 
 function App() {
   return (
     <>
       <Router>
-        <Navrbartop />
-        <Navbar />
-        <NavItem />
+        <NavFull/>
         <Switch>
+          <Route path='/' exact component={Home} />
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           <Route path="/userprofile" exact component={UserProfile} />
@@ -39,6 +41,8 @@ function App() {
           <Route path="/myCart" exact component={MyCart} />
           <Route path="/wishlist" exact component={Wishlist} />
           <Route path="/vendor" exact component={Vendor} />
+          <Route path="/vendorRequest" exact component={VendorRequest} />
+          <Route path="/checkout" exact component={Checkout} />
         </Switch>
         <Footer/>
       </Router>
