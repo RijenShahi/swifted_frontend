@@ -7,8 +7,17 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 function Cards() {
   let [products, setProduct] = useState([]);
+  let [auth,setAuth] = useState({
+    "config":{
+      "headers":{
+        "authorization":`Bearer ${localStorage.getItem("token")}`
+      }
+    }
+  })
+  
+  
   useEffect(() => {
-    axios.get("http://localhost:90/product/showAll")
+    axios.get("http://localhost:90/swiftedAPI/products/displayProducts",auth.config)
       .then((response) => {
         console.log(response);
         setProduct(
@@ -34,25 +43,19 @@ function Cards() {
                 <Col lg={4}>
                   <Card className="productCard">
 
-                    <Card.Img variant="top" src={`http://localhost:90/${product.pImage}`} />
+                    <Card.Img variant="top" src={`http://localhost:90/${product.productImage}`} />
 
                     <Card.Body>
-                      <Card.Title className="text-center">{product.pName}</Card.Title>
-                      <p> <b>Price: </b> Rs {product.pPrice}</p>
-                      <p> <b>Rating: </b>{product.pRating}</p>
-                      <p> <b>Description: </b>{product.pDesc}</p>
+                      <Card.Title className="text-center">{product.productName}</Card.Title>
+                      <p> <b>Price: </b> Rs {product.productPrice}</p>
+                      <p> <b>Rating: </b>{product.productRating}</p>
+                      <p> <b>Description: </b>{product.productDescription}</p>
 
 
                     </Card.Body>
 
 
-                    <Row className="p-3">
-                      <Col lg={12}>
-                        <Link style={{ float: "right", color: "red", fontSize: "30px" }} name="cart" to={`/productDetails/` + product._id}> <FaShoppingCart /></Link>
-                        <Link style={{ float: "right", color: "red", fontSize: "25px" }} name="cart" to={`/productDetails/` + product._id}>Add to Cart</Link>
-                      </Col>
-
-                    </Row>
+                    
 
 
                   </Card>

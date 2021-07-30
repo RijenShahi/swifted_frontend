@@ -35,6 +35,7 @@ const Vendor = () => {
                             <Tabs
                                value={value}
                                onChange={handleChange}  
+                               variant = 'fullWidth'
                             > 
                                 <Tab icon={<AiFillPlusCircle style={{fontSize:"50px"}}/>} label="Add Product"/>
                                 <Tab icon={<MdTimer style={{fontSize:"50px"}}/>} label="Update/Delete Product"/>
