@@ -1,42 +1,111 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { TextField, Button, Divider } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function Checkout() {
+function Checkout(props) {
+    const {} = props;
+
+    //state change
+    let [bill,setBill] = useState({});
+    let [auth,setAuth] = useState({
+        "config":{
+            "headers":{
+                "authorization":`Bearer ${localStorage.getItem('token')}`
+            }
+        }
+    })
+    let [checkout,setCheckout] = useState({
+        "firstName":"",
+        "lastName":"",
+        "email":"",
+        "address":'',
+        "phone":"",
+        "addisstionalInfo":"Fine."
+    })
+
+    useEffect(()=>{
+        axios.get("http://localhost:90/swiftedAPI/myCartBill",auth.config)
+        .then((response)=>{
+            if(response.data.success == true)
+            {
+                setBill(
+                    response.data.data
+                )
+            }
+            else
+            {
+                setBill(
+                    {}
+                )
+            }  
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    },[])
+
+    const changHandler = (e)=>{
+        let {name,value} =e.target;
+        setCheckout({
+            ...checkout,
+            [name]:value
+        })
+    }
+
+
+    const checkoutItem = (e)=>{
+        e.preventDefault();
+
+        axios.post("http://localhost:90/swifteAPI/order",checkout,auth.config)
+        .then((response)=>{
+            if(response.data.success == true)
+            {
+                window.location.href="/"
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
+
     return (
         <div>
             <div className="form">
+            <form method ="post" onSubmit={checkoutItem}>
                 <div className="row m-2">
                     <div className="col-8 p-2">
                         <h3>Billing Details</h3>
                     </div>
+                    
                     <div className="col-6 p-2">
-                        <TextField id="firstname" type="text" variant="outlined" label="First Name" fullWidth
+                        <TextField id="firstname" type="text" variant="outlined" label="First Name" fullWidth name="firstName" onchange={(e)=>{changHandler(e)}} value={checkout.firstName}
                         />
                     </div>
 
                     <div className="col-6 p-2">
-                        <TextField id="lastname" type="text" variant="outlined" label="Last Name" fullWidth
+                        <TextField id="lastname" type="text" variant="outlined" label="Last Name" fullWidth name="lastName" onchange={(e)=>{changHandler(e)}} value={checkout.lastName}
                         />
                     </div>
                 </div>
 
                 <div className="row m-2">
                     <div className="col-6 p-2">
-                        <TextField id="address" type="text" variant="outlined" label="Address" fullWidth
+                        <TextField id="address" type="text" variant="outlined" label="Address" fullWidth name="address" onchange={(e)=>{changHandler(e)}} value={checkout.address}
                         />
                     </div>
 
                     <div className="col-6 p-2">
 
-                        <TextField id="phone" type="text" variant="outlined" label="Phone" fullWidth
+                        <TextField id="phone" type="text" variant="outlined" label="Phone" fullWidth name="phone" onchange={(e)=>{changHandler(e)}} value={checkout.phone}
                         />
                     </div>
-                    <TextField id="email" className="p-2" type="text" variant="outlined" label="Email" fullWidth
+                    <TextField id="email" className="p-2" type="email" variant="outlined" label="Email" fullWidth name="email" onchange={(e)=>{changHandler(e)}} value={checkout.email}
                     />
                 </div>
 
@@ -47,7 +116,7 @@ function Checkout() {
                         <h3>Additional Information</h3>
                     </div>
                     <div className="col-6 p-2">
-                        <TextField id="firstname" type="text" variant="outlined" label="Special notes for delivery" fullWidth
+                        <TextField id="firstname" type="text" variant="outlined" label="Special notes for delivery" fullWidth name="additionalInfo" onchange={(e)=>{changHandler(e)}} value={checkout.additionalInfo}
                         />
                     </div>
                 </div>
@@ -65,22 +134,59 @@ function Checkout() {
                                 <th scope="col">Total</th>
 
                             </tr>
-                            <tr>
-                                <td>Product name x 1</td>
-                                <td>00$</td>
-                            </tr>
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>00$</td>
-                            </tr>
-                            <tr>
-                                <td>Delivery</td>
-                                <td>00$</td>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td>00$</td>
-                            </tr>
+                            {
+                                bill?
+                                (
+                                
+                                        
+                                            bill['products']&&
+                                            (
+                                                <>
+
+                                                    <tr>
+                                                        <td>{ bill['products']}</td>
+                                                        <td>{ bill['totalQuantity']}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Subtotal</td>
+                                                        <td>Rs { bill['price']}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Delivery</td>
+                                                        <td>{ bill['delivery']}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>Rs { bill['overall']}</td>
+                                                    </tr>
+                                                </>
+                                            )
+                                        
+                            
+                                ):
+                                (
+                                    <>
+
+                                        <tr>
+                                            <td>Product name x 1</td>
+                                            <td>00$</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Subtotal</td>
+                                            <td>00$</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Delivery</td>
+                                            <td>00$</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td>00$</td>
+                                        </tr>
+                                    </>
+                                )
+                            }
+                            
                         </tbody>
                     </table>
                 </div>
@@ -102,6 +208,10 @@ function Checkout() {
                         </ul>
                     </div>
                 </div>
+                                <div className="text-center">
+                                    <button type="submit" className="btn btn-primary btn-md w-50" name="checkout"> Buy  </button>
+                                </div>    
+                </form>
             </div>
         </div>
     )

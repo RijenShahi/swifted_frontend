@@ -138,16 +138,21 @@ export default function Cart(props) {
         console.log(err);
       });
   };
+
+  
+
+
   return (
     <Container>
       <Row>
         <Col lg={12}>
           <h1 className="cart">Cart</h1>
+          <Link className="btn btn-primary w-0 btn-md"  name="checkoutBtn" to="/checkout" style={{float:"right"}}> Buy Products  </Link>
         </Col>
 
         {bookings.map((book) => {
           return (
-            <Col lg={3}>
+            <Col lg={3} style={{clear:"both"}}>
               <Card className="gadgetCard">
                 <Card.Img
                   variant="top"
@@ -208,6 +213,7 @@ export default function Cart(props) {
                     Delete
                   </Link>
                 </div>
+                
               </Card>
             </Col>
           );

@@ -32,7 +32,7 @@ const RetrieveUpdateDelete = (props) => {
 
   const deleteProduct = (e, id) => {
     axios
-      .post("http://localhost:90/product/delete", { id: id }, auth.config)
+      .post("http://localhost:90/swiftedAPI/products/deleteProduct", { id: id }, auth.config)
       .then((response) => {
         if (response.data.success == true) {
           swal({

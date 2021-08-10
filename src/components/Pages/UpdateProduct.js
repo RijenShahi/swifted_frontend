@@ -12,7 +12,7 @@ const UpdateProduct = (props) => {
         "productPrice":products.productPrice,
         "productStocks":products.productStocks,
         "productImage":"",
-        "productRating":"",
+        "productRating":products.productRating,
         "id": products._id,
         "config": {
             "headers": {
@@ -49,10 +49,11 @@ const UpdateProduct = (props) => {
         fData.append("productStocks",product.productStocks)
         fData.append("productImage",product.productImage)
         fData.append("productRating",product.productRating)
-        console.log(product)
-        axios.put("http://localhost:90/swiftedAPI/products/updateProduct/:id", fData, product.config)
+        fData.append('id',product.id)
+        
+        axios.put("http://localhost:90/swiftedAPI/products/updateProduct", fData, product.config)
             .then((response) => {
-                console.log(response)
+            
                 if (response.data.success == true) {
                     swal({
                         title: "Success",
@@ -76,7 +77,7 @@ const UpdateProduct = (props) => {
     return (
         <React.Fragment>
             <div class="modal fade" id={`product${products._id}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Update</h5>
