@@ -21,6 +21,7 @@ import VendorRequest from "./components/Vendor/vendorRequest";
 import Checkout from "./components/Pages/Checkout";
 import NavFull from "./components/Navbar/NavFull";
 import CardsForCart from "./components/Cards/CardsForCart";
+import ResetPass from "./components/Pages/resetPass";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/vendorRequest" exact component={VendorRequest} />
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/product/:pid" exact component={CardsForCart}></Route>
+          <Route path="/reset/:tokenId" component={ResetPass} exact/>
         </Switch>
         <Footer />
       </Router>

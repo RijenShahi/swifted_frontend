@@ -25,7 +25,7 @@ function Checkout(props) {
         "email":"",
         "address":'',
         "phone":"",
-        "addisstionalInfo":"Fine."
+        "additionalInfo":"Fine."
     })
 
     useEffect(()=>{
@@ -50,7 +50,8 @@ function Checkout(props) {
     },[])
 
     const changHandler = (e)=>{
-        let {name,value} =e.target;
+      
+        let {name,value} = e.target;
         setCheckout({
             ...checkout,
             [name]:value
@@ -60,8 +61,8 @@ function Checkout(props) {
 
     const checkoutItem = (e)=>{
         e.preventDefault();
-
-        axios.post("http://localhost:90/swifteAPI/order",checkout,auth.config)
+     
+        axios.post("http://localhost:90/swiftedAPI/order",checkout,auth.config)
         .then((response)=>{
             if(response.data.success == true)
             {
@@ -84,29 +85,36 @@ function Checkout(props) {
                     </div>
                     
                     <div className="col-6 p-2">
-                        <TextField id="firstname" type="text" variant="outlined" label="First Name" fullWidth name="firstName" onchange={(e)=>{changHandler(e)}} value={checkout.firstName}
-                        />
+                        <div className="form-group">
+                            <input type="text" className="form-control" name="firstName" value={checkout.firstName} placeholder="First Name" onChange={(e)=>{changHandler(e)}}/>
+                        </div>
+                      
+                    
                     </div>
 
                     <div className="col-6 p-2">
-                        <TextField id="lastname" type="text" variant="outlined" label="Last Name" fullWidth name="lastName" onchange={(e)=>{changHandler(e)}} value={checkout.lastName}
-                        />
+                    <div className="form-group">
+                            <input type="text" className="form-control" name="lastName" value={checkout.lastName} placeholder="Last Name" onChange={(e)=>{changHandler(e)}}/>
+                        </div>
                     </div>
                 </div>
 
                 <div className="row m-2">
                     <div className="col-6 p-2">
-                        <TextField id="address" type="text" variant="outlined" label="Address" fullWidth name="address" onchange={(e)=>{changHandler(e)}} value={checkout.address}
-                        />
+                    <div className="form-group">
+                            <input type="text" className="form-control" name="address" value={checkout.address} placeholder="Address" onChange={(e)=>{changHandler(e)}}/>
+                        </div>
                     </div>
 
                     <div className="col-6 p-2">
 
-                        <TextField id="phone" type="text" variant="outlined" label="Phone" fullWidth name="phone" onchange={(e)=>{changHandler(e)}} value={checkout.phone}
-                        />
+                    <div className="form-group">
+                            <input type="text" className="form-control" name="phone" value={checkout.phone} placeholder="Phone" onChange={(e)=>{changHandler(e)}}/>
+                        </div>
                     </div>
-                    <TextField id="email" className="p-2" type="email" variant="outlined" label="Email" fullWidth name="email" onchange={(e)=>{changHandler(e)}} value={checkout.email}
-                    />
+                    <div className="form-group">
+                            <input type="email" className="form-control" name="email" value={checkout.email} placeholder="Email" onChange={(e)=>{changHandler(e)}}/>
+                        </div>
                 </div>
 
                 <Divider variant="middle" />
@@ -116,8 +124,9 @@ function Checkout(props) {
                         <h3>Additional Information</h3>
                     </div>
                     <div className="col-6 p-2">
-                        <TextField id="firstname" type="text" variant="outlined" label="Special notes for delivery" fullWidth name="additionalInfo" onchange={(e)=>{changHandler(e)}} value={checkout.additionalInfo}
-                        />
+                    <div className="form-group">
+                            <input type="text" className="form-control" name="additionalInfo" value={checkout.additionalInfo} onChange={(e)=>{changHandler(e)}}/>
+                        </div>
                     </div>
                 </div>
 
