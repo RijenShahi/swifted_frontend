@@ -69,20 +69,25 @@ function CardsForCart(props) {
 
   useEffect(() => {
     axios
-      .post(
-        "http://localhost:90/retrieveRating",
-        { csId: props.match.params.pid },
-        auth.config
+      .get(
+        "http://localhost:90/swiftedAPI/rating/getMyRating/"+ratings.product_id,auth.config
+    
       )
       .then((response) => {
-        console.log(response);
+        console.log(response)
         if (response.data.success == true) {
           setRating({
             ...ratings,
             ["rating"]: response.data.data.rating,
           });
         }
-      });
+        else{
+          setRating({
+            ...ratings,
+            ['rating']:0
+          })
+        }
+      })
   }, [ratings.rating]);
 
   const rateProduct = (newRating, name) => {
@@ -92,8 +97,8 @@ function CardsForCart(props) {
     });
     axios
       .post(
-        "http://localhost:90/rate/cs",
-        { csId: props.match.params.pid, rating: newRating },
+        "http://localhost:90/swiftedAPI/rating/rateAProduct",
+        { productId: props.match.params.pid, rating: newRating },
         auth.config
       )
       .then((response) => {})
@@ -101,6 +106,23 @@ function CardsForCart(props) {
         console.log(err);
       });
   };
+
+  const removeRating = (e)=>{
+    axios.delete("http://localhost:90/swiftedAPI/rating/removeRating/"+ratings.product_id,auth.config)
+    .then((response)=>{
+      if(response.data.success == true)
+      {
+        window.location.reload()
+      }
+      else
+      {
+
+      }
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
 
   let token = localStorage.getItem("token");
   return (
@@ -136,7 +158,7 @@ function CardsForCart(props) {
                 </p>
               </Card.Body>
 
-              {/* <div className="text-center">
+              <div className="text-center">
                 <StarRatings
                   rating={ratings.rating}
                   starRatedColor="gold"
@@ -147,7 +169,13 @@ function CardsForCart(props) {
                   name={props.match.params.pid}
                   starHoverColor="gold"
                 />
-              </div> */}
+              </div>
+              {
+                ratings.rating >0 &&
+                (
+                  <button className="btn" type="button" style={{border:"none",background:"none",textDecoration:"underline"}} name="remove" onClick={(e)=>{removeRating(e)}}> Remove Rating  </button>
+                )
+              }
 
               {token ? (
                 <div className="text-center">
