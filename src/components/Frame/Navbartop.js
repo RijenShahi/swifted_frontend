@@ -70,7 +70,13 @@ function Navbartop() {
                 onClick={closeMobileMenu}
               >
                 <i className="fas fa-user"></i>&nbsp;
-                {user.firstname ? <>{user.firstname}</> : <>Account</>} &nbsp;
+                {
+                  user &&
+                  (
+                    user.firstname ? <>{user.firstname}</> : <>Account</>
+                  )
+                }
+               
                 <i className="fas fa-caret-down" />
               </Link>
               {dropdown && <Dropdown />}
