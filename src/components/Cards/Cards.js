@@ -31,11 +31,9 @@ function Cards() {
   }, []);
 
   return (
-    <div className="cards">
+    <>
       <h1 className="heading">Available Products:</h1>
       <div className="underline mx-auto"></div>
-      <Container>
-        <Row>
           {products.map((product) => {
             return (
               <Col lg={4}>
@@ -45,8 +43,8 @@ function Cards() {
                     src={`http://localhost:90/${product.productImage}`}
                   />
 
-                  <Card.Body>
-                    <Card.Title className="text-center">
+                  <Card.Body className="card" >
+                    <Card.Title className="text-center" >
                       <h2><b>{product.productName}</b></h2>
                     </Card.Title>
                     <p>
@@ -81,9 +79,7 @@ function Cards() {
               </Col>
             );
           })}
-        </Row>
-      </Container>
-    </div>
+          </>
   );
 }
 

@@ -11,14 +11,16 @@ const UserProfile = (props) => {
   return (
     <>
   <Container>
-    <Row className="mx-auto">
-      <Col sm={12} className="emp-profile profile-head me-auto">
-      <img src={profile} alt="profile" />
+    <Row>
+      <Col className="" style={{
+    margin: "0 20%"}}>
+        <div className="emp-profile profile-head d-block" style={{
+    margin: "0 35%"}}>
+        <img src={profile} alt="profile" />
               <h2>User Profile</h2>
               <h4>{user.userType}</h4>
-      </Col>
-      <Col sm={12}>
-      <Form>
+        </div>
+      <Form  className="px-3 py-5 mb-4" style={{border:"1px solid #f0f0c0", boxShadow:"3px 3px #f0f0f1"}}>
   <Form.Group className="mb-3" controlId="formGroupEmail">
     <Form.Label>Firstname:</Form.Label>
     <Form.Control type="email" placeholder="Enter email" value={user.firstname} disabled/>
@@ -39,6 +41,9 @@ const UserProfile = (props) => {
     <Form.Label>Address:</Form.Label>
     <Form.Control type="text" placeholder="Password" value={user.address} disabled/>
   </Form.Group>
+<div className="text-center">
+<Link className="mt-3 px-5 py-2 btn-md bg-success text-white" to="/editprofile" style={{textDecoration:"none"}}>Edit</Link>
+</div>
   
 </Form>
       </Col>
