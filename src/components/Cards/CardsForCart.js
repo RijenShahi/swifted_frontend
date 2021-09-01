@@ -5,6 +5,7 @@ import { Row, Container, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import StarRatings from "react-star-ratings";
+import { FaShoppingCart } from "react-icons/fa";
 
 function CardsForCart(props) {
   let [product, setProduct] = useState({});
@@ -187,6 +188,7 @@ function CardsForCart(props) {
                     }}
                   >
                     Add to Cart
+                    
                   </Link>
                 </div>
               ) : (
@@ -197,6 +199,9 @@ function CardsForCart(props) {
                     to="/login"
                   >
                     Add to Cart
+                    
+                  {" "}
+                    <FaShoppingCart />{" "}
                   </Link>
                 </div>
               )}

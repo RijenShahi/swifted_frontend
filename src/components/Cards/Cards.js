@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardItem from "./CardItem";
 import axios from "axios";
-import { Row, Container, Col, Card } from "react-bootstrap";
+import { Row, Container, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -32,7 +32,7 @@ function Cards() {
 
   return (
     <div className="cards">
-      <h1 className="heading">New Arrivals</h1>
+      <h1 className="heading">Available Products:</h1>
       <div className="underline mx-auto"></div>
       <Container>
         <Row>
@@ -47,7 +47,7 @@ function Cards() {
 
                   <Card.Body>
                     <Card.Title className="text-center">
-                      {product.productName}
+                      <h2><b>{product.productName}</b></h2>
                     </Card.Title>
                     <p>
                       {" "}
@@ -58,16 +58,24 @@ function Cards() {
                       <b>Rating: </b>
                       {product.productRating}
                     </p>
-                    <p>
+                    {/* <p>
                       {" "}
                       <b>Description: </b>
                       {product.productDescription}
-                    </p>
+                    </p> */}
                   </Card.Body>
 
-                  <Link to={`/product/${product._id}`}>
-                    {" "}
-                    <FaShoppingCart />{" "}
+                  <Link to={`/product/${product._id}`} className="cardBtn">
+                    <Button
+                    variant="outlined"
+                    color="primary"
+                    className="fieldsecReg"
+                  >
+                    <h5><b>More Details...
+                    </b></h5>
+
+                    
+                  </Button>
                   </Link>
                 </Card>
               </Col>

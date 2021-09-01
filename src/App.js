@@ -19,15 +19,15 @@ import UpdateProduct from "./components/Pages/UpdateProduct";
 import RetrieveUpdateDelete from "./components/Pages/RetrieveUpdateDelete";
 import VendorRequest from "./components/Vendor/vendorRequest";
 import Checkout from "./components/Pages/Checkout";
-import NavFull from "./components/Navbar/NavFull";
 import CardsForCart from "./components/Cards/CardsForCart";
 import ResetPass from "./components/Pages/resetPass";
+import Header from "./components/Frame/Header";
 
 function App() {
   return (
     <>
       <Router>
-        <NavFull />
+      <Header />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/register" exact component={Register} />

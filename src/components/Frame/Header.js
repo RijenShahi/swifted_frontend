@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavbarBrand,Navbar,Container,NavDropdown,Nav  } from 'react-bootstrap'
 
-const logout=()=>{
+const logout=(e)=>{
   localStorage.clear()
   window.location.href="/"
 }
 const Header = (props) => {
+  let { }=props;
   let token =  localStorage.getItem('token');
-  const user = localStorage.getItem('user');
+  const user = JSON.parse(localStorage.getItem('user'));
 
     return (
         <>
@@ -19,17 +20,26 @@ const Header = (props) => {
     <Nav className="mx-auto">
       <Nav.Link href="#features">Features</Nav.Link>
       <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        
+                        <Nav.Link to="/wishlist" className="text-black-50">
+                            <i className="ni far fa-heart"></i>
+                        </Nav.Link>
+                        <Nav.Link to="/mycart" className="text-black-50">
+                            <i class="ni fas fa-shopping-cart"></i>
+                        </Nav.Link>
+    
     </Nav>
     <Nav className="mx-right">
       {
-        token !=null && user.userType=="Admin" ?
+        token !== null && user.userType=='Admin'?
         (
-          <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">profile</NavDropdown.Item>
-          <NavDropdown.Item onClick={logout()}>Logout</NavDropdown.Item>
+          <NavDropdown title={user.username} id="collasible-nav-dropdown">
+          <NavDropdown.Item href="/editprofile">profile</NavDropdown.Item>
+          <NavDropdown.Item onClick={(e)=>{logout(e)}}>Logout</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>
         </NavDropdown>
         ):(
+          
           <>
            <Nav.Link href="#features">Create Account</Nav.Link>
       <Nav.Link href="/login">Login</Nav.Link>
@@ -41,6 +51,7 @@ const Header = (props) => {
   </Navbar.Collapse>
   </Container>
 </Navbar>
+
         </>
     )
 }

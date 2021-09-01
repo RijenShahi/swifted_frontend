@@ -40,10 +40,10 @@ class EditProfile extends Component {
     render(){
         return (
             <>
-                <div className="container emp-profile">
+                <div className="container emp-profile text-center">
                     <form method="">
                         <div className="row">
-                            <div className="col-md-4">
+                            <div className="col-md-1">
                                 <img src={profile} alt="profile" />
                             </div>
 
@@ -53,14 +53,13 @@ class EditProfile extends Component {
                                     <h4>Customer</h4>
                                 </div>
                             </div>
-                            <div className="form">
+                            <div className="form formManual">
                                 <div className="row m-2">
                                     <div className="col-6 p-2">
                                         <TextField id="firstname" type="text" variant="outlined" label="First Name" fullWidth 
                                          value={this.state.firstname} onChange={(event) => {this.setState({ firstname:event.target.value }) } }
                                         />
                                     </div>
-                                    <br />
 
                                     <div className="col-6 p-2">
                                         <TextField id="lastname" type="text" variant="outlined" label="Last Name" fullWidth 
@@ -70,30 +69,27 @@ class EditProfile extends Component {
                                     <br />
                                 </div>
 
-                                <br />
-
                                 <div className="row m-2">
                                     <TextField id="email" className="p-2" type="text" variant="outlined" label="Email" fullWidth 
                                     value={this.state.email} onChange={(event) => {this.setState({ email:event.target.value }) } }
                                     />
+                                </div>
+
+                                <div className="row m-2">
                                     <div className="col-6 p-2">
-                                        <br />
 
                                         <TextField id="phone" type="text" variant="outlined" label="Phone" fullWidth 
                                         value={this.state.phone} onChange={(event) => {this.setState({ phone:event.target.value }) } }
                                         />
-                                    </div>
-                                    <br />
-
-                                    <div className="col-6 p-2">
+                                        </div>
+                                        <div className="col-6 p-2">
                                         <TextField id="address" type="text" variant="outlined" label="Address" fullWidth 
                                         value={this.state.address} onChange={(event) => {this.setState({ address:event.target.value }) } }
                                         />
                                     </div>
                                     <br />
                                 </div>
-                                <br />
-                                <div className="col-md-2">
+                                <div className="col-2 m-4" className="center">
                                     <Button variant="contained" color="primary" onClick= {this.EditProfile}>Save</Button>
                                 </div>
                             </div>

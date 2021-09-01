@@ -4,84 +4,8 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
   }
-  /*Navbar*/
-  .navbar {
-    background-color: #ffffff;
-    display: flex;
-    padding-left: 45px;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  .navbarr {
-    background-color: #ffffff;
-    display: flex;
-    padding-left: 45px;
-    align-items: center;
-    font-size: 1.2rem;
-    top: 0;
-    z-index: 999;
-  }
 
-  .navbar > .navsearch {
-    display: flex;
-    padding-left: 100px;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-
-  .navicon{
-    font-size: 25px;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 40px;
-    color: #FF4F04;
-    padding-left: 400px;
-  }
-
-  .ni{
-    color: rgb(0, 0, 0);
-  }
-  .ni:hover{
-    color: #FF4F04;
-  }
-
-
-  .navbar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    max-width: 1500px;
-  }
-
-  .nav-top-menu {
-    background-color: #FAFAFA;
-    font-size: 13px;
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
-    list-style: none;
-    text-align:right;
-    width: 100vw;
-    position: sticky;
-    justify-content: end;
-  }
-
-  .navbartop-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    max-width: 1600px;
-  }
-
-  .navsearch{
+  /* .navsearch{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,7 +105,7 @@
   }
 
   /* Dropdown */
-  .dropdown-menu {
+  /* .dropdown-menu {
     background: #e75111;
     width: 200px;
     position: absolute;
@@ -210,14 +134,14 @@
     text-decoration: none;
     color: #fff;
     padding: 16px;
-  }
-  
-  @media screen and (max-width: 960px) {
+  } */
+   */
+  /* @media screen and (max-width: 960px) {
     .fa-caret-down {
       display: none;
     }
   }
-  
+   */
   /*  */
 
 /*HomeSection*/
@@ -231,12 +155,13 @@
 }
 
   /* Login */
-  .form{
-    padding: 20px;
-    justify-content: center;
+.loginMain, .registerMain{
+  justify-content: center;
+}
+
+  .formManual{
+    margin: 1%;
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.19);
-    height: 50%;
-    width: 50%;
   }
 
 .fab{
@@ -274,7 +199,7 @@
   display:flex;
   color: #FF4F04;
   justify-content:space-around;
-  padding:30px;
+  padding:2%;
 
 }
 
@@ -426,11 +351,11 @@
 /* Resposive */
 /* Nabvar */
 @media screen and (max-width: 960px) {
-  .NavbarItems {
+  /* .NavbarItems {
     position: relative;
-  }
+  } */
 
-  .nav-menu {
+  /* .nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -461,7 +386,7 @@
     top: 0;
     left: 0;
     transform: translate(25%, 50%);
-  }
+  } */
 
   .menu-icon {
     display: block;
@@ -496,10 +421,10 @@
     color: #1888ff;
     transition: 250ms;
   }
-
+/* 
   button {
     display: none;
-  }
+  } */
 }
 
 /*Cards*/
@@ -765,8 +690,25 @@ h1 {
 @media screen and (max-width: 768px) {
 }
 
-
-.rowNav{
- float: center;
+.fields{
+  width: 207%;
 }
 
+.fieldsReg{
+  width: 100%;
+}
+
+.fieldsec{
+  width: 203%;
+}
+
+.fieldsecReg{
+  width: 98%;
+}
+
+.cardBtn{
+  background: #FF4F04;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.19);
+}

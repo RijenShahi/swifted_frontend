@@ -73,7 +73,7 @@ const RetrieveUpdateDelete = (props) => {
 
                     <p>
                       {" "}
-                      <b>Price: </b> Rs {product.pPrice}
+                      <b>Price: </b> Rs {product.productPrice}
                     </p>
                     <p>
                       {" "}
