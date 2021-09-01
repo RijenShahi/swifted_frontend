@@ -99,8 +99,8 @@ function CardInfo(props) {
       <h1 className="cartheading">Product Details</h1>
       <Container>
         <Row>
-          <Col lg={4} className="d-none d-md-block"></Col>
-          <Col lg={4}>
+          <Col lg={3} className="d-none d-md-block"></Col>
+          <Col lg={6}>
             <Card className="prodictCard">
               <Card.Img variant="top" src={`http://localhost:90/${product.pImage}`} />
 
@@ -140,6 +140,7 @@ function CardInfo(props) {
               }
             </Card>
           </Col>
+          <Col lg={3} className="d-none d-md-block"></Col>
         </Row>
       </Container>
 
