@@ -14,14 +14,18 @@ const Header = (props) => {
         <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Brand href="/">Swifted</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mx-auto">
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        
-                        <Nav.Link to="/wishlist" className="text-black-50">
+    {
+      token !==null && user.userType=="Customer"?(
+        <>
+        <Nav className="mx-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/about">About</Nav.Link>
+      <Nav.Link href="/shop">Products</Nav.Link>
+      <Nav.Link href="/contact">Contact Us</Nav.Link>
+<Nav.Link to="/wishlist" className="text-black-50">
                             <i className="ni far fa-heart"></i>
                         </Nav.Link>
                         <Nav.Link to="/mycart" className="text-black-50">
@@ -29,9 +33,65 @@ const Header = (props) => {
                         </Nav.Link>
     
     </Nav>
+        </>
+      ):(
+        <>
+        </>
+      )
+    }
+       {
+      token !==null && user.userType=="Admin"?(
+        <>
+        <Nav className="mx-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/about">About</Nav.Link>
+      <Nav.Link href="/shop">Products</Nav.Link>
+      <Nav.Link href="/contact">Contact Us</Nav.Link>
+    
+    </Nav>
+        </>
+      ):(
+        <>
+        </>
+      )
+    }
+       {
+      token !==null && user.userType=="Vendor"?(
+        <>
+        <Nav className="mx-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/about">About</Nav.Link>
+      <Nav.Link href="/shop">Products</Nav.Link>
+      <Nav.Link href="/contact">Contact Us</Nav.Link>
+      <Nav.Link href="/contact">Contact Us</Nav.Link>
+ <Nav.Link href="/contact">Dashboard</Nav.Link>
+    
+    </Nav>
+        </>
+      ):(
+        <>
+        </>
+      )
+    }
+       {
+      token ==null ?(
+        <>
+        <Nav className="mx-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/about">About</Nav.Link>
+      <Nav.Link href="/shop">Products</Nav.Link>
+      <Nav.Link href="/contact">Contact Us</Nav.Link>
+    
+    </Nav>
+        </>
+      ):(
+        <>
+        </>
+      )
+    }
     <Nav className="mx-right">
       {
-        token !== null && user.userType=='Admin'?
+        token !== null && user.userType=='Admin' || token !== null && user.userType==="Customer" ||token !== null && user.userType==="Vendor"? 
         (
           <NavDropdown title={user.username} id="collasible-nav-dropdown">
           <NavDropdown.Item href="/userprofile">Edit Profile</NavDropdown.Item>
@@ -40,11 +100,38 @@ const Header = (props) => {
         ):(
           
           <>
-           <Nav.Link href="#features">Create Account</Nav.Link>
-      <Nav.Link href="/login">Login</Nav.Link>
           </>
         )
       }
+       {
+        token !== null && user.userType=='Customer'? 
+        (
+          <NavDropdown title={user.firstname} id="collasible-nav-dropdown">
+          <NavDropdown.Item href="/userprofile">Edit Profile</NavDropdown.Item>
+          <NavDropdown.Item onClick={(e)=>{logout(e)}}>Logout</NavDropdown.Item>
+        </NavDropdown>
+        ):(
+          
+          <>
+           
+          </>
+        )
+      }
+      {
+        token == null ? 
+        (
+          <>
+          <Nav.Link href="#features">Create Account</Nav.Link>
+          <Nav.Link href="/login">Login</Nav.Link>
+          </>
+        ):(
+          
+          <>
+          
+          </>
+        )
+      }
+      
    
     </Nav>
   </Navbar.Collapse>

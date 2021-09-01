@@ -31,7 +31,7 @@ class Login extends Component {
           });
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("user", JSON.stringify(response.data.data));
-          window.location.href = "/userprofile";
+          window.location.href = "/";
         }
       })
       .catch((err) => {
