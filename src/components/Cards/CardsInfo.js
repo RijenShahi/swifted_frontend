@@ -97,10 +97,12 @@ function CardInfo(props) {
   return (
     <div className='cards'>
       <h1 className="cartheading">Product Details</h1>
+      
       <Container>
         <Row>
           <Col lg={3} className="d-none d-md-block"></Col>
           <Col lg={6}>
+            
             <Card className="prodictCard">
               <Card.Img variant="top" src={`http://localhost:90/${product.pImage}`} />
 

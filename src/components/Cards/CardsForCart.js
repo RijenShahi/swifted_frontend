@@ -8,6 +8,21 @@ import StarRatings from "react-star-ratings";
 
 function CardsForCart(props) {
   let [product, setProduct] = useState({});
+  let [commentDetail,setCommentDetail] = useState({
+    "comment":"",
+    "productId":props.match.params.pid
+    
+  });
+
+  let [comments,setComments] = useState([]);
+  let [replies,setReplies]  = useState([]); 
+  let [replyDetails,setDetails] = useState({
+     "reply":"",
+     "commentId":""
+     
+  })
+
+  
   let [ratings, setRating] = useState({
     rating: 0,
     product_id: props.match.params.pid,
@@ -17,6 +32,7 @@ function CardsForCart(props) {
       },
     },
   });
+  
   let [auth, setAuth] = useState({
     config: {
       headers: {
@@ -24,6 +40,43 @@ function CardsForCart(props) {
       },
     },
   });
+
+  useEffect(()=>{
+    axios.get("http://localhost:90/swiftedAPI/reply/fetchAllReplies/"+props.match.params.pid)
+          .then((response)=>{
+            
+        if(response.data.success == true)
+             {
+                 setReplies(response.data.data)
+             }
+             else
+             {
+                setReplies([])
+             }
+          })
+          .catch((err)=>{
+        console.log(err);
+          })
+     },[])
+
+  useEffect(()=>{
+    axios.get("http://localhost:90/swiftedAPI/comment/fetchComments/"+props.match.params.pid)
+    .then((response)=>{
+      if(response.data.success == true)
+      {
+        setComments(
+          response.data.data
+        )
+      }
+      else
+      {
+        setComments([])
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[])
 
   useEffect(() => {
     axios
@@ -124,15 +177,135 @@ function CardsForCart(props) {
     })
   }
 
+  const commentHandler = (e)=>{
+    let {name,value} = e.target;
+    setCommentDetail({
+      ...commentDetail,
+      [name]:value
+    })
+  }
+
+  const addComment = (e)=>{
+    e.preventDefault();
+    axios.post("http://localhost:90/swiftedAPI/comment/addComment",commentDetail,auth.config)
+    .then((response)=>{
+      if(response.data.success == true)
+      {
+        window.location.reload();
+      }
+      else
+      {
+        console.log(response.data.message)
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+
+  const replyHandler = (e,cid)=>{
+
+    let {name,value} = e.target;
+    setDetails({
+        ...replyDetails,
+        [name]:value,
+        ["commentId"]:cid
+    })
+}
+
+const postReply = (e)=>{
+e.preventDefault();
+  axios.post('http://localhost:90/swiftedAPI/reply/addReply',replyDetails,auth.config)
+  .then((response)=>{
+    if(response.data.success == true)
+    {
+      window.location.reload();
+    }
+    else
+    {
+      console.log(response.data.message)
+    }
+  })
+  .catch((err)=>{
+      console.log(err);
+   })
+}
+
+  const loadReplies = (commentId) =>{
+    let content = [];
+    let repliesComment = replies.filter((val)=>{return val.commentId._id.toString() == commentId.toString()});
+    
+    for(var i of repliesComment)
+    {
+   content.push(
+       <div className="replyHolder m-4 p-3" style={{ background:"#f0f0f0"}}>
+        <p style={{float:"right"}}>  <small> {i.fancyDate}  </small> </p>
+                          <h5 style={{clear:"both"}}>  {i.userId.username}  </h5>
+                          <p className="text-justify"> {i.reply}   </p>
+                      </div>	
+                  )
+            }
+
+    return content;
+}
+
+const getLength = (cid) =>{
+  let repliesComment = replies.filter((val)=>{return val.commentId._id.toString() == cid.toString()});
+  return repliesComment.length
+}
+
+  const loadCommentAndReplies = ()=>{
+    let content = [];
+
+        if(comments.length > 0)
+        {
+	         for(var i of comments)
+              {
+                  content.push(
+                      <div className="commentHolder p-4 m-3" style={{background:"#f0f0f0"}}>
+                    <p style={{float:"right"}}>  <small> {i.fancyDate}  </small> </p>
+                                      <h5 style={{clear:"both"}} style={{fontWeight:"bolder"}}>  {i.userId.username}  </h5>
+                                      <p className="text-justify"> <strong> Comment: </strong> {i.comment}   </p>
+                                      <button class="btn btn-primary" onFocus={(e)=>{e.target.style.boxShadow="none"}} style={{border:"none",background:"none",color:"black"}} type="button" data-toggle="collapse" data-target={`#replies${i._id}`} aria-expanded="false" aria-controls="collapseExample">
+                          View {getLength(i._id)} replies.
+                      </button>
+                                      
+                                      <div class="collapse" id={`replies${i._id}`}>
+                        <div class="card card-body">
+                          {
+                                                loadReplies(i._id).map((val)=>{
+                                                    
+                                                  
+                                                  return (val);
+                                                })
+                                              }
+                                              <form method = "post" onSubmit={postReply}>
+                          <div className="form-group">										
+                                                      <input type="text" className="form-control" name="reply" value={replyDetails.reply} placeholder="Your Reply" onChange={(e)=>{replyHandler(e,i._id)}} required/>  	  
+                                                  </div>     
+                                                  <div className="text-center">
+                                                      <button className="btn btn-primary btn-md w-50" type="submit" name="reply"> Reply </button> 
+                                                  </div>           	
+                                            </form>
+
+                                        </div>
+                                      </div>
+                                </div>
+                            )
+                        }
+        }      
+        return content;
+  }
+
   let token = localStorage.getItem("token");
   return (
     <div className="cards">
       <h1 className="cartheading">Product Details</h1>
       <Container>
         <Row>
-          <Col lg={4} className="d-none d-md-block"></Col>
-          <Col lg={4}>
-            <Card className="prodictCard">
+          <Col lg={2} className="d-none d-md-block"></Col>
+          <Col lg={8}>
+            <Card className="prodictCard p-4">
               <Card.Img
                 variant="top"
                 src={`http://localhost:90/${product.productImage}`}
@@ -200,8 +373,26 @@ function CardsForCart(props) {
                   </Link>
                 </div>
               )}
+
+              {
+                loadCommentAndReplies().map((val)=>{
+                  return (val)
+                })
+              }
+
+              <form method="post" onSubmit={addComment}>
+                <div className="form-group">
+                    <label> Your Comment </label>
+                    <textarea className="form-control" name="comment" onChange={(e)=>{commentHandler(e)}} required></textarea>
+                </div>
+                <div className="text-center">
+                  <button className="btn btn-primary btn-md w-50" type="submit" name="comment"> Comment </button>
+                </div>
+
+              </form>
             </Card>
           </Col>
+          <Col lg={2} className="d-none d-md-block"></Col>
         </Row>
       </Container>
     </div>
