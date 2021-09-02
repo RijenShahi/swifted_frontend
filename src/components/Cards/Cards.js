@@ -3,6 +3,7 @@ import CardItem from "./CardItem";
 import axios from "axios";
 import { Row, Container, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 import { FaShoppingCart } from "react-icons/fa";
 
 function Cards() {
@@ -64,7 +65,7 @@ function Cards() {
           <Col lg={2} className="d-none d-md-block d-lg-block"></Col>
         </Row>
       </Container>
-    
+      <Row>
       <div className="underline mx-auto"></div>
           {filtered.map((product) => {
             return (
@@ -83,11 +84,20 @@ function Cards() {
                       {" "}
                       <b>Price: </b> Rs {product.productPrice}
                     </p>
-                    <p>
+                
                       {" "}
-                      <b>Rating: </b>
-                      {product.productRating}
-                    </p>
+                      
+                      <StarRatings
+                  rating={product.productRating}
+                  starRatedColor="gold"
+                  starDimension="30px"
+                  starSpacing="3px"
+                  numberOfStars={5}
+                  name={product._id}
+                  starHoverColor="gold"
+                />
+               
+               
                     {/* <p>
                       {" "}
                       <b>Description: </b>
@@ -111,6 +121,7 @@ function Cards() {
               </Col>
             );
           })}
+          </Row>
           </>
   );
 }
