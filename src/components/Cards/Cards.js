@@ -7,6 +7,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function Cards() {
   let [products, setProduct] = useState([]);
+  let [sort,setSort] = useState("asc");
+  let [search,setSearch] = useState("");
   let [auth, setAuth] = useState({
     config: {
       headers: {
@@ -14,6 +16,8 @@ function Cards() {
       },
     },
   });
+
+  
 
   useEffect(() => {
     axios
@@ -30,11 +34,39 @@ function Cards() {
       });
   }, []);
 
+  let filtered = products.filter((val)=>{return val.productName.trim().toLowerCase().startsWith(search.trim().toLowerCase())});
+  filtered = filtered.sort((a,b)=>{return a.productName.localeCompare(b.productName)});
+
+  if(sort == "desc")
+  {
+    filtered.reverse();
+  }
+
   return (
     <>
       <h1 className="heading">Available Products:</h1>
+      <Container>
+        <Row>
+          <Col lg={4} className="d-none d-md-block d-lg-block"></Col>
+          <Col lg={4}>
+              <form method = "post">
+                <input type="text" className="form-control" name="search" onChange={(e)=>{setSearch(e.target.value)}} placeholder="Search by name...."/>
+              </form>
+          </Col>
+          <Col lg={2}>
+          <form method = "post">
+                <select className="form-control" name="sort" onChange={(e)=>{setSort(e.target.value)}}>
+                  <option value="asc"> A-Z </option>
+                  <option value="desc"> Z-A </option>
+                </select>
+              </form>
+          </Col>
+          <Col lg={2} className="d-none d-md-block d-lg-block"></Col>
+        </Row>
+      </Container>
+    
       <div className="underline mx-auto"></div>
-          {products.map((product) => {
+          {filtered.map((product) => {
             return (
               <Col lg={4}>
                 <Card className="productCard">
