@@ -118,6 +118,20 @@ const Header = (props) => {
         )
       }
       {
+        token !== null && user.userType=='Customer'? 
+        (
+          <NavDropdown title={user.firstname} id="collasible-nav-dropdown">
+          <NavDropdown.Item href="/userprofile">Edit Profile</NavDropdown.Item>
+          <NavDropdown.Item onClick={(e)=>{logout(e)}}>Logout</NavDropdown.Item>
+        </NavDropdown>
+        ):(
+          
+          <>
+           
+          </>
+        )
+      }
+      {
         token == null ? 
         (
           <>
