@@ -20,14 +20,10 @@ import RetrieveUpdateDelete from "./components/Pages/RetrieveUpdateDelete";
 import VendorRequest from "./components/Vendor/vendorRequest";
 import Checkout from "./components/Pages/Checkout";
 import CardsForCart from "./components/Cards/CardsForCart";
-import ResetPass from "./components/Pages/resetPass";
-<<<<<<< HEAD
-
+import ResetPass from "./components/Pages/resetPass";dsss
 import Header from "./components/Frame/Header";
 
-=======
-import Header from "./components/Frame/Header";
->>>>>>> a3130170415d6550ff685338e7d5bbb2ecaeb12f
+
 import ViewRequests from "./components/Pages/vendorRequest";
 
 
