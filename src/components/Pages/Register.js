@@ -132,7 +132,7 @@ class Register extends Component {
                 <TextField
                   id="password"
                   className="p-2 fieldsReg"
-                  type="text"
+                  type="password"
                   variant="outlined"
                   label="Password"
                   value={this.state.password}

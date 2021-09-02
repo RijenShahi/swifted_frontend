@@ -86,7 +86,7 @@ class Login extends Component {
                 <TextField
                   id="password"
                   className="p-2 fields"
-                  type="text"
+                  type="password"
                   variant="outlined"
                   label="Password"
                   value={this.state.password}
@@ -96,18 +96,7 @@ class Login extends Component {
                 />
               </div>
 
-              <div>
-               
-                <Button
-                  className="fieldsec m-2"
-                  variant="outlined"
-                  color="secondary"
-                  data-target="#forgotPassword"
-                   data-toggle="modal"
-                >
-                  Forget Password?
-                </Button>
-              </div>
+              
 
               <div class="modal fade" id="forgotPassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -142,6 +131,19 @@ class Login extends Component {
                   onClick={this.Login}
                 >
                   Log In
+                </Button>
+              </div>
+
+              <div>
+               
+                <Button
+                  className="fieldsec m-2"
+                  variant="outlined"
+                  color="secondary"
+                  data-target="#forgotPassword"
+                   data-toggle="modal"
+                >
+                  Forget Password?
                 </Button>
               </div>
 
