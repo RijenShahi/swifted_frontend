@@ -46,7 +46,22 @@
   .nav-item {
     height: 40px;
   }
+
+  .navbar a
+  {
+    color:white !important;
+  }
   
+.dropdown-menu a
+{
+  color :black !important;
+}
+
+.dropdown-menu a:hover
+{
+  background-color: #f0f0f0 !important;
+}
+
   .nav-links {
     color: rgb(0, 0, 0);
     display: flex;

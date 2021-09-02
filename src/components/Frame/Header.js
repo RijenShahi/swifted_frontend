@@ -1,14 +1,97 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { NavbarBrand,Navbar,Container,NavDropdown,Nav  } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-const logout=(e)=>{
-  localStorage.clear()
-  window.location.href="/"
-}
+
 const Header = (props) => {
   let { }=props;
   let token =  localStorage.getItem('token');
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const closeMobileMenu = () => setClick(false);
+  const [click, setClick] = useState(false);
+  
+  const logout=(e)=>{
+    localStorage.clear()
+    window.location.href="/"
+  }
+
+  if (token && user.userType == "Customer") {
+    var header = (
+      <>
+        <li className="nav-item">
+          <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+            Home
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/shop" className="nav-links" onClick={closeMobileMenu}>
+            Shop
+          </Link>
+        </li>
+      
+        <li className="nav-item">
+          <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
+            About
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
+            Contact Us
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/vendorRequest"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Become A Vendor
+          </Link>
+        </li>
+       
+      </>
+    );
+  } else if (token && (user.userType == "Vendor" || user.userType == "Admin")) {
+    var header = (
+      <>
+        <li className="nav-item">
+          <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+            Home
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link
+            to="/controlPanel"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Control Panel
+          </Link>
+        </li>
+        
+      </>
+    );
+  } else {
+    var header = (
+      <>
+        <li className="nav-item">
+          <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+            Home
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+            Login
+          </Link>
+        </li>
+      </>
+    );
+  }
+
 
     return (
         <>
@@ -17,137 +100,18 @@ const Header = (props) => {
   <Navbar.Brand href="/">Swifted</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mx-auto">
+      {header}
+    </Nav>
     {
-      token !==null && user.userType=="Customer"?(
-        <>
-        <Nav className="mx-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/shop">Products</Nav.Link>
-      <Nav.Link href="/contact">Contact Us</Nav.Link>
-<Nav.Link to="/wishlist" className="text-black-50">
-                            <i className="ni far fa-heart"></i>
-                        </Nav.Link>
-                        <Nav.Link to="/mycart" className="text-black-50">
-                            <i class="ni fas fa-shopping-cart"></i>
-                        </Nav.Link>
-    
-    </Nav>
-        </>
-      ):(
-        <>
-        </>
-      )
-    }
-       {
-      token !==null && user.userType=="Admin"?(
-        <>
-        <Nav className="mx-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/shop">Products</Nav.Link>
-      <Nav.Link href="/contact">Contact Us</Nav.Link>
-    
-    </Nav>
-        </>
-      ):(
-        <>
-        </>
-      )
-    }
-       {
-      token !==null && user.userType=="Vendor"?(
-        <>
-        <Nav className="mx-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/shop">Products</Nav.Link>
-      <Nav.Link href="/contact">Contact Us</Nav.Link>
-      <Nav.Link href="/contact">Contact Us</Nav.Link>
- <Nav.Link href="/contact">Dashboard</Nav.Link>
-    
-    </Nav>
-        </>
-      ):(
-        <>
-        </>
-      )
-    }
-       {
-      token ==null ?(
-        <>
-        <Nav className="mx-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/shop">Products</Nav.Link>
-      <Nav.Link href="/contact">Contact Us</Nav.Link>
-    
-    </Nav>
-        </>
-      ):(
-        <>
-        </>
-      )
-    }
-    <Nav className="mx-right">
-      {
-        token !== null && user.userType=='Admin' || token !== null && user.userType==="Customer" ||token !== null && user.userType==="Vendor"? 
-        (
-          <NavDropdown title={user.username} id="collasible-nav-dropdown">
+      token&&
+      <Nav className="mx-right">
+        <NavDropdown title={user.firstname} id="collasible-nav-dropdown">
           <NavDropdown.Item href="/userprofile">Edit Profile</NavDropdown.Item>
           <NavDropdown.Item onClick={(e)=>{logout(e)}}>Logout</NavDropdown.Item>
         </NavDropdown>
-        ):(
-          
-          <>
-          </>
-        )
-      }
-       {
-        token !== null && user.userType=='Customer'? 
-        (
-          <NavDropdown title={user.firstname} id="collasible-nav-dropdown">
-          <NavDropdown.Item href="/userprofile">Edit Profile</NavDropdown.Item>
-          <NavDropdown.Item onClick={(e)=>{logout(e)}}>Logout</NavDropdown.Item>
-        </NavDropdown>
-        ):(
-          
-          <>
-           
-          </>
-        )
-      }
-      {
-        token !== null && user.userType=='Customer'? 
-        (
-          <NavDropdown title={user.firstname} id="collasible-nav-dropdown">
-          <NavDropdown.Item href="/userprofile">Edit Profile</NavDropdown.Item>
-          <NavDropdown.Item onClick={(e)=>{logout(e)}}>Logout</NavDropdown.Item>
-        </NavDropdown>
-        ):(
-          
-          <>
-           
-          </>
-        )
-      }
-      {
-        token == null ? 
-        (
-          <>
-          <Nav.Link href="#features">Create Account</Nav.Link>
-          <Nav.Link href="/login">Login</Nav.Link>
-          </>
-        ):(
-          
-          <>
-          
-          </>
-        )
-      }
-      
-   
-    </Nav>
+        </Nav>
+    }
   </Navbar.Collapse>
   </Container>
 </Navbar>

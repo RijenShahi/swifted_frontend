@@ -21,11 +21,9 @@ import VendorRequest from "./components/Vendor/vendorRequest";
 import Checkout from "./components/Pages/Checkout";
 import CardsForCart from "./components/Cards/CardsForCart";
 import ResetPass from "./components/Pages/resetPass";
-<<<<<<< HEAD
 import Header from "./components/Frame/Header";
-=======
 import ViewRequests from "./components/Pages/vendorRequest";
->>>>>>> 60c5c73c38c74af72eae9944f3503625020ebbea
+
 
 function App() {
   return (
