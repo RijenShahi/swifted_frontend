@@ -20,11 +20,10 @@ import RetrieveUpdateDelete from "./components/Pages/RetrieveUpdateDelete";
 import VendorRequest from "./components/Vendor/vendorRequest";
 import Checkout from "./components/Pages/Checkout";
 import CardsForCart from "./components/Cards/CardsForCart";
-import ResetPass from "./components/Pages/resetPass";dsss
+import ResetPass from "./components/Pages/resetPass";
 import Header from "./components/Frame/Header";
-
-
 import ViewRequests from "./components/Pages/vendorRequest";
+import ResetPassword from "./components/Pages/ResetPassword";
 
 
 function App() {
@@ -49,7 +48,7 @@ function App() {
           <Route path="/vendorRequest" exact component={VendorRequest} />
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/product/:pid" exact component={CardsForCart}></Route>
-          <Route path="/reset/:tokenId" component={ResetPass} exact/>
+          <Route path="/reset/:tokenId" component={ResetPassword} exact/>
           <Route path="/vendorRequests" component={ViewRequests} exact/>
         </Switch>
         <Footer />

@@ -13,7 +13,7 @@ const Header = (props) => {
   
   const logout=(e)=>{
     localStorage.clear()
-    window.location.href="/"
+    window.location.href="/login"
   }
 
   if (token && user.userType == "Customer") {
@@ -53,7 +53,7 @@ const Header = (props) => {
        
       </>
     );
-  } else if (token && (user.userType == "Vendor" || user.userType == "Admin")) {
+  } else if (token && (user.userType == "Vendor")) {
     var header = (
       <>
         <li className="nav-item">
@@ -71,10 +71,44 @@ const Header = (props) => {
             Control Panel
           </Link>
         </li>
+
         
       </>
     );
-  } else {
+  } 
+  else if (token && (user.userType == "Admin")) {
+    var header = (
+      <>
+        <li className="nav-item">
+          <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+            Home
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link
+            to="/controlPanel"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Control Panel
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link
+            to="/vendorRequests"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Vendor Requests
+          </Link>
+        </li>
+        
+      </>
+    );
+  }
+  else {
     var header = (
       <>
         <li className="nav-item">

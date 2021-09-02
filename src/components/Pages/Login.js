@@ -6,11 +6,14 @@ import loginimg from "../../images/login1.PNG";
 // import PersonIcon from '@material-ui/icons/Person';
 import axios from "axios";
 import swal from "sweetalert";
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 class Login extends Component {
   state = {
     username: "",
     password: "",
+    email:""
   };
 
   Login = (e) => {
@@ -38,6 +41,24 @@ class Login extends Component {
         console.log(err);
       });
   };
+
+  verifyAddress = (e)=>{
+    e.preventDefault();
+    axios.post("http://localhost:90/swiftedAPI/userProfile/verifyEmail", this.state)
+        .then((response) => {
+            if (response.data.success == true) {
+                localStorage.setItem('email', this.state.email)
+                toast.success(response.data.message)
+            }
+            else {
+                toast.error(response.data.message)
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+  }
+
   render() {
     return (
       <>
@@ -76,14 +97,41 @@ class Login extends Component {
               </div>
 
               <div>
+               
                 <Button
                   className="fieldsec m-2"
                   variant="outlined"
                   color="secondary"
+                  data-target="#forgotPassword"
+                   data-toggle="modal"
                 >
                   Forget Password?
                 </Button>
               </div>
+
+              <div class="modal fade" id="forgotPassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Enter Email Address</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" onSubmit={this.verifyAddress}>
+                                <div className="form-group">
+                                    <label>  Enter your email address </label>
+                                    <input type="email" className="form-control" name="email" value={this.state.email} required onChange={(e) => { this.setState({"email":e.target.value}) }} />
+ 
+                                </div>
+ 
+                                <div className="text-center">
+                                    <button className="btn btn-primary w-50" type="submit" name="forgot"> Verify </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
               <div>
                 <Button
