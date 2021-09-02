@@ -99,7 +99,7 @@ const ResetPassword = (props) => {
                     </div>
 
                 </form>
-                <div style={{ float: "right" }}>
+                <div style={{ float: "center" }}>
                     <p>
                         Didnot get the Link?
                         <button style={{ background: "none", textDecoration: "underline", border: "none", marginLeft: "5px", marginTop: "15px" }} type="button" name="resend" onClick={(e) => { resendLink(e) }}>  Resend Link </button>
