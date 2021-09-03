@@ -94,7 +94,7 @@ const VendorRequest = (props) => {
                 <form className="reg__form" method="post" onSubmit={requestVendor}>
                 <div className="form-group">
                     <label> Store Name</label>
-                    <input type="text" className="form-control" name='storeName' value={reqDetail['storeName']} onChange={(event)=>{changeHandler(event)}} required />
+                    <input id="storeName" type="text" className="form-control" name='storeName' value={reqDetail['storeName']} onChange={(event)=>{changeHandler(event)}} required />
                 </div>
 
 
@@ -106,7 +106,7 @@ const VendorRequest = (props) => {
                             <MdPerson style={{color:"black",fontSize:"17px"}}/>
                             </span>
                         </div>
-                        <input type="text" className="form-control" name='address' value={reqDetail['address']} onChange={(event)=>{changeHandler(event)}} required 
+                        <input id="Address" type="text" className="form-control" name='address' value={reqDetail['address']} onChange={(event)=>{changeHandler(event)}} required 
                           
                         />
                     </div>
@@ -121,7 +121,7 @@ const VendorRequest = (props) => {
                             <MdEmail style={{color:"black",fontSize:"17px"}}/>
                             </span>
                         </div>
-                        <input type="text" maxLength="10" className="form-control" name='contact' value={reqDetail['contact']} onChange={(event)=>{changeHandler(event)}}  required 
+                        <input id="contact" type="text" maxLength="10" className="form-control" name='contact' value={reqDetail['contact']} onChange={(event)=>{changeHandler(event)}}  required 
                              
                         />
                     </div>
@@ -134,7 +134,7 @@ const VendorRequest = (props) => {
                     <label>CitizenShip</label>
                    
                         
-                        <input type="file" className="form-control-file" name='citizenShip' onChange={(event)=>{imageHandler(event)}} accept="image/*" required 
+                        <input id="citizenShip" type="file" className="form-control-file" name='citizenShip' onChange={(event)=>{imageHandler(event)}} accept="image/*" required 
                             
                         />
                     
@@ -145,7 +145,7 @@ const VendorRequest = (props) => {
                     <label>Logo</label>
                    
                         
-                        <input type="file" className="form-control-file" name='logo' onChange={(event)=>{imageHandler(event)}} accept="image/*" required 
+                        <input id="logo" type="file" className="form-control-file" name='logo' onChange={(event)=>{imageHandler(event)}} accept="image/*" required 
                             
                         />
                     

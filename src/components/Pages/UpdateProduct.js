@@ -91,38 +91,38 @@ const UpdateProduct = (props) => {
                             <form method="put" onSubmit={UpdateProduct}>
                             <div className="form-group">
                                   <label> Product Name </label>  
-                                  <input type="text" className="form-control" name="productName" value={product['productName']} onChange={(event)=>{changeHandler(event)}} required/> 
+                                  <input id="productName" type="text" className="form-control" name="productName" value={product['productName']} onChange={(event)=>{changeHandler(event)}} required/> 
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Description </label>  
-                                  <input type="text" className="form-control" name="productDescription" value={product['productDescription']} onChange={(event)=>{changeHandler(event)}} required/> 
+                                  <input id="productDescription" type="text" className="form-control" name="productDescription" value={product['productDescription']} onChange={(event)=>{changeHandler(event)}} required/> 
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Vendor </label>   
-                                  <input type="text" className="form-control" name="productVendor" value={product['productVendor']} onChange={(event)=>{changeHandler(event)}} required/> 
+                                  <input id="productVendor" type="text" className="form-control" name="productVendor" value={product['productVendor']} onChange={(event)=>{changeHandler(event)}} required/> 
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Image </label>  
-                                  <input type="file" accept="image/*" className="form-control-file" name="productImage"  onChange={(event)=>{fileHandler(event)}} required/> 
+                                  <input id="productImage" type="file" accept="image/*" className="form-control-file" name="productImage"  onChange={(event)=>{fileHandler(event)}} required/> 
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Categories </label>  
-                                  <textarea className="form-control" name="productCategory" value={product['productCategory']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                  <textarea id="productCategory" className="form-control" name="productCategory" value={product['productCategory']} onChange={(event)=>{changeHandler(event)}} required></textarea>
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Price </label>  
-                                  <textarea className="form-control" name="productPrice" value={product['productPrice']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                  <textarea id="productPrice" className="form-control" name="productPrice" value={product['productPrice']} onChange={(event)=>{changeHandler(event)}} required></textarea>
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Stocks </label>  
-                                  <textarea className="form-control" name="productStocks" value={product['productStocks']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                  <textarea id="productStocks" className="form-control" name="productStocks" value={product['productStocks']} onChange={(event)=>{changeHandler(event)}} required></textarea>
                                 </div> 
                                 <div className="form-group">
                                   <label> Product Rating </label>  
-                                  <textarea className="form-control" name="productRating" value={product['productRating']} onChange={(event)=>{changeHandler(event)}} required></textarea>
+                                  <textarea id="productRating" className="form-control" name="productRating" value={product['productRating']} onChange={(event)=>{changeHandler(event)}} required></textarea>
                                 </div> 
                                 <div className="text-center">
-                                    <button className="btn btn-primary w-50 btn-lg" name="updateProduct" type="submit"> Update Product </button>
+                                    <button id="updateProduct" className="btn btn-primary w-50 btn-lg" name="updateProduct" type="submit"> Update Product </button>
                                 </div>
                             </form>
                         </div>

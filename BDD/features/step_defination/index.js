@@ -84,3 +84,17 @@ Given('Test Update Product Functionality', async function (){
     expect(await driver.wait(until.elementLocated(By.id("home-tab"))));
     await driver.quit();
 })
+
+Given('Test Become a Vendor Request', async function () {
+    let driver = await new Builder().forBrowser('chrome').build();
+    await driver.get('http://localhost:3000/request/beAVendor');
+
+    await driver.findElement(By.id('storeName')).sendKeys('Hamro Pasal');
+    await driver.findElement(By.id('address')).sendKeys('Putalisadak');
+    await driver.findElement(By.id('contact')).sendKeys('9815952466');
+    await driver.findElement(By.id('citizenship')).sendKeys('citizenship.jpg');
+    await driver.findElement(By.id('logo')).sendKeys('logo.png');
+    
+    await driver.findElement(By.id('registrationButton')).click();
+    await driver.quit();
+})

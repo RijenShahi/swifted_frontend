@@ -88,6 +88,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Name </label>
                 <input
+                  id="productName"
                   type="text"
                   className="form-control"
                   name="productName"
@@ -101,6 +102,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Description </label>
                 <input
+                  id="productDescription"
                   type="text"
                   className="form-control"
                   name="productDescription"
@@ -114,6 +116,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Vendor </label>
                 <input
+                  id="productVendor"
                   type="text"
                   className="form-control"
                   name="productVendor"
@@ -127,6 +130,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Image </label>
                 <input
+                  id="productImage"
                   type="file"
                   accept="image/*"
                   className="form-control-file"
@@ -140,6 +144,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Categories </label>
                 <textarea
+                  id="productCategory"
                   className="form-control"
                   name="productCategory"
                   value={product["productCategory"]}
@@ -152,6 +157,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Price </label>
                 <textarea
+                  id="productPrice"
                   className="form-control"
                   name="productPrice"
                   value={product["productPrice"]}
@@ -164,6 +170,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Stocks </label>
                 <textarea
+                  id="productStocks"
                   className="form-control"
                   name="productStocks"
                   value={product["productStocks"]}
@@ -176,6 +183,7 @@ const AddProducts = () => {
               <div className="form-group">
                 <label> Product Rating </label>
                 <textarea
+                  id="productRating"
                   className="form-control"
                   name="productRating"
                   value={product["productRating"]}
@@ -188,6 +196,7 @@ const AddProducts = () => {
 
               <div className="text-center">
                 <button
+                  id="submit"
                   className="btn btn-primary w-50 btn-lg"
                   name="add_product"
                   type="submit"
