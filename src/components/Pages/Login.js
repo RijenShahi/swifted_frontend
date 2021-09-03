@@ -28,7 +28,8 @@ class Login extends Component {
       .then((response) => {
         if (response.data.success === true) {
           swal({
-            title: "Sucess",
+            title: "Logged In.",
+            text:"Welcome to swifted.",
             test: "User Logined",
             icon: "Success",
           });
@@ -39,6 +40,11 @@ class Login extends Component {
       })
       .catch((err) => {
         console.log(err);
+        swal({
+          title: "Log In Failed!",
+          text: "Profile couldn't be edited. Check your credientials.",
+          icon: "Failure",
+        });
       });
   };
 

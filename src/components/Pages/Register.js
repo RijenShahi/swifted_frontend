@@ -36,8 +36,9 @@ class Register extends Component {
       .then((response) => {
         if (response.data.success === true) {
           swal({
-            title: "Success",
-            text: "User Added",
+            title: "Account Registred.",
+            test: "user Registered.",
+            text: "User Account has been created successfully.",
             icon: "Success",
           });
           window.location.href = "/login";
@@ -45,6 +46,11 @@ class Register extends Component {
       })
       .catch((err) => {
         console.log(err);
+        swal({
+          title: "Registration Failed.",
+          text: "Couldn't Register. Recheck the fields.",
+          icon: "Failure",
+        });
       });
   };
   render() {
@@ -142,17 +148,6 @@ class Register extends Component {
                 />
               </div>
               <div>
-                <Link to="/login" className="text-black-50">
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    className="fieldsecReg m-2"
-                  >
-                    Already have an account?
-                  </Button>
-                </Link>
-              </div>
-              <div>
                 <Button
                   id="register"
                   className="fieldsecReg m-2"
@@ -162,6 +157,17 @@ class Register extends Component {
                 >
                   Create Account
                 </Button>
+              </div>
+              <div>
+                <Link to="/login" className="text-black-50">
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    className="fieldsecReg m-2"
+                  >
+                    Already have an account?
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="icon">
