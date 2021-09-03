@@ -1,9 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Pages/Home";
-import Navbar from "./components/Frame/Navbar";
-import Navrbartop from "./components/Frame/Navbartop";
-import NavItem from "./components/Frame/NavItem";
 import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
 import UserProfile from "./components/Pages/UserProfile";

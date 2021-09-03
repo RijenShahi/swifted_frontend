@@ -79,10 +79,10 @@ const VendorRequest = (props) => {
 <Row>
     <Col className="reg__form">
         <div className="reg__title">
-            <p style={{fontWeight:"bolder",padding:"12px"}}>  Request for Professional according to Skill </p>
+            <p style={{fontWeight:"bolder",padding:"12px"}}>  Request for customers if they want to become the vendor. </p>
         </div>
         <div className="welcome__message">
-            <p> Add your details here </p>
+            <p> Add your details here: </p>
         </div>
         <div style={{width:"100%",border:"1px solid grey",background:"grey"}}></div>
         <p style={{fontWeight:"bolder",color:"#525252",margin:"10px 0px 0px 40px",fontSize:"22px"}}> Please fill the form to request. </p>

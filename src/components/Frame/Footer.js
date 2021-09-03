@@ -11,7 +11,7 @@ function Footer() {
                         <div class='footer-link-items'>
                             <h2>Contact Us</h2>
                             <p className='footer-subscription-text'>
-                                Phone: 0123456789
+                                Phone: 9818189349
                             </p>
                             <p className='footer-subscription-text'>
                             Address: Sodtwarica College of IT & E-commerce, Dillibazar, Kathmandu, Nepal
@@ -58,7 +58,7 @@ function Footer() {
                             <Link to='/'>Youtube</Link>
                             <Link to='/'>Twitter</Link>
                         </div>
-                        <div class='footer-link-items'>
+                        {/* <div class='footer-link-items'>
                             <h2>Lets Stay in Touch</h2>
                             <p className='footer-subscription-text'>
                                 Susbcribing to our mailing list you will always get latest news and updates from us.
@@ -74,7 +74,7 @@ function Footer() {
                                     <Button buttonStyle='btn--outline'>Subscribe</Button>
                                 </form>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
