@@ -44,9 +44,9 @@ function Cards() {
   }
 
   return (
-    <>
+    <Container>
       <h1 className="heading">Available Products:</h1>
-      <Container>
+      
         <Row>
           <Col lg={4} className="d-none d-md-block d-lg-block"></Col>
           <Col lg={4}>
@@ -64,7 +64,7 @@ function Cards() {
           </Col>
           <Col lg={2} className="d-none d-md-block d-lg-block"></Col>
         </Row>
-      </Container>
+      
       <Row>
       <div className="underline mx-auto"></div>
           {filtered.map((product) => {
@@ -122,7 +122,7 @@ function Cards() {
             );
           })}
           </Row>
-          </>
+          </Container>
   );
 }
 
