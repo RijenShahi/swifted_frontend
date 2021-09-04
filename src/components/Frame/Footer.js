@@ -11,10 +11,13 @@ function Footer() {
                         <div class='footer-link-items'>
                             <h2>Contact Us</h2>
                             <p className='footer-subscription-text'>
-                                Phone: 9818189349
+                                Phone: 9818189349 || Phone-2: 9869695774
                             </p>
                             <p className='footer-subscription-text'>
-                            Address: Sodtwarica College of IT & E-commerce, Dillibazar, Kathmandu, Nepal
+                            E-mails: hrizexshahi@gmail.com, softwarica.edu.com.np
+                            </p>
+                            <p className='footer-subscription-text'>
+                            Address: Softwarica College of IT & E-commerce, Dillibazar, Kathmandu, Nepal
                             </p>
                             <div class='social-icons'>
                                 <Link
