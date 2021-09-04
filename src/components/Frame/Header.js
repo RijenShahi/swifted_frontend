@@ -26,24 +26,24 @@ const Header = (props) => {
       <>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-            Home
+            <h1><b>Home</b></h1>
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="/shop" className="nav-links" onClick={closeMobileMenu}>
-            Shop
+          <h5><b>Shop</b></h5>
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
-            About
+          <h5><b>About</b></h5>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
-            Contact Us
+          <h5><b>Contact Us</b></h5>
           </Link>
         </li>
         <li className="nav-item">
@@ -62,7 +62,7 @@ const Header = (props) => {
             className="nav-links"
             onClick={closeMobileMenu}
           >
-            Become A Vendor
+            <h5><b>Become a Vendor</b></h5>
           </Link>
         </li>
       </>
@@ -72,7 +72,7 @@ const Header = (props) => {
       <>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-            Home
+          <h5><b>Home</b></h5>
           </Link>
         </li>
 
@@ -82,7 +82,7 @@ const Header = (props) => {
             className="nav-links"
             onClick={closeMobileMenu}
           >
-            Control Panel
+            <h5><b>Control Panel</b></h5>
           </Link>
         </li>
       </>
@@ -92,7 +92,7 @@ const Header = (props) => {
       <>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-            Home
+          <h5><b>Home</b></h5>
           </Link>
         </li>
 
@@ -102,7 +102,7 @@ const Header = (props) => {
             className="nav-links"
             onClick={closeMobileMenu}
           >
-            Control Panel
+            <h5><b>Control Panel</b></h5>
           </Link>
         </li>
 
@@ -112,7 +112,7 @@ const Header = (props) => {
             className="nav-links"
             onClick={closeMobileMenu}
           >
-            Vendor Requests
+            <h5><b>Vendor Requests</b></h5>
           </Link>
         </li>
       </>
@@ -122,13 +122,13 @@ const Header = (props) => {
       <>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-            Home
+          <h5><b>Home</b></h5>
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
-            Login
+          <h5><b>Login</b></h5>
           </Link>
         </li>
       </>
@@ -139,7 +139,7 @@ const Header = (props) => {
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">Swifted</Navbar.Brand>
+          <Navbar.Brand href="/"><h2><b>Swifted</b></h2></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">{header}</Nav>

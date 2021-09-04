@@ -15,7 +15,7 @@ function HomeContainer() {
           <Button
             className='' color="primary"
           >
-            Explore More... <i class="fas fa-arrow-alt-circle-right"></i>
+            <b>Explore More </b><i class="fas fa-arrow-alt-circle-right"></i>
           </Button>
           </Link>
 
@@ -24,7 +24,7 @@ function HomeContainer() {
             className='' color="secondary" varient="contained"
             
           >
-            About Us <i class="fas fa-info"></i>
+            <b>About Us</b> <i class="fas fa-info"></i>
           </Button>
           </Link>
         </div>
