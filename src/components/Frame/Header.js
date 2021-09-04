@@ -26,7 +26,7 @@ const Header = (props) => {
       <>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-            <h1><b>Home</b></h1>
+            <h5><b>Home</b></h5>
           </Link>
         </li>
 
