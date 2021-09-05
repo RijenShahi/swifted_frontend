@@ -68,7 +68,7 @@ class Login extends Component {
   render() {
     return (
       <>
-        <div className="row m-1 loginMain">
+        <div className="row m-1 loginMain defaultMargin">
           <div className="form formManual">
             <div className="img">
               <div className="icon_class">
@@ -125,7 +125,7 @@ class Login extends Component {
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
 
               <div>

@@ -144,7 +144,7 @@ export default function Cart(props) {
 
   return (
     <Container>
-      <Row>
+      <Row className="defaultMargin">
         <Col lg={12}>
           <h1 className="cart">Cart</h1>
           <Link className="btn btn-primary w-0 btn-md"  name="checkoutBtn" to="/checkout" style={{float:"right"}}> Buy Products  </Link>

@@ -13,7 +13,7 @@ const UserProfile = (props) => {
       <Container>
         <Row>
           <Col
-            className=""
+            className="defaultMargin"
             style={{
               margin: "0 20%",
             }}

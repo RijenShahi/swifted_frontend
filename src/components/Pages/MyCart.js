@@ -7,7 +7,7 @@ import emptycart from "../../images/empty.png";
 function MyCart() {
     return (
         <>
-            <div className="container emp-profile">
+            <div className="container emp-profile defaultMargin">
                 <form method="">
                     <div className="row">
                         <div className="col-md-4">

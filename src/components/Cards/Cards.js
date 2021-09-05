@@ -44,7 +44,7 @@ function Cards() {
   }
 
   return (
-    <Container>
+    <Container className="defaultMargin2">
       <h1 className="heading">Available Products:</h1>
       
         <Row>

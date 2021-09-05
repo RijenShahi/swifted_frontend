@@ -17,7 +17,7 @@ const Vendor = () => {
   return (
     <React.Fragment>
       <Container>
-        <Row>
+        <Row className="defaultMargin">
           <Col lg={2} className="d-none d-md-block"></Col>
           <Col lg={7}>
             <div className="tab__toggle mt-2">

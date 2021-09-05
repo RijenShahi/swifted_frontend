@@ -50,7 +50,7 @@ const ViewRequests = (props) => {
     return (
         <React.Fragment>
             <Container fluid>
-                <Row>
+                <Row className="defaultMargin">
                     <Col lg={12}>
                     <p style={{float:"right",fontWeight:"bolder"}} className="mt-2 mr-1"> {requests.length} requests on pending. </p>
                     </Col>

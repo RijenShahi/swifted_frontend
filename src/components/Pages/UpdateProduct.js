@@ -76,7 +76,7 @@ const UpdateProduct = (props) => {
     }
     return (
         <React.Fragment>
-            <div class="modal fade" id={`product${products._id}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade defaultMargin" id={`product${products._id}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">

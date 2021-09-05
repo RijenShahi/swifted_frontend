@@ -80,7 +80,7 @@ const VendorRequest = (props) => {
   return (
     <React.Fragment>
       <Container>
-        <Row>
+        <Row className="defaultMargin">
           <Col className="reg__form formManual">
             <div className="reg__title">
               <p style={{ fontWeight: "bolder", padding: "12px" }}>

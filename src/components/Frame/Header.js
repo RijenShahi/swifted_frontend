@@ -138,7 +138,7 @@ const Header = (props) => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="fixed-top">
         <Container>
           <img src={logo} className="logo"/>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

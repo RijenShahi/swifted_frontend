@@ -57,7 +57,7 @@ class Register extends Component {
     return (
       <>
       <div>
-        <div className="row m-1 registerMain">
+        <div className="row m-1 registerMain defaultMargin">
           <div className="col-6 form formManual">
             <div className="img">
               <div className="icon_class">

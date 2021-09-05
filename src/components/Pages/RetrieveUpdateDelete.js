@@ -56,7 +56,7 @@ const RetrieveUpdateDelete = (props) => {
   return (
     <React.Fragment>
       <Container fluid>
-        <Row>
+        <Row className="defaultMargin">
           {products.map((product) => {
             return (
               <Col lg={6}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/logo.png'
+import logo from '../../images/aboutlogo.png'
 
 function Aboutus() {
     return (
@@ -9,9 +9,9 @@ function Aboutus() {
 
 
             <section className="section bg-c-light border-bottom">
-                <div className="container">
-                    <img src={logo} alt="Logo" />
-                    <hr />
+                <div className="container aboutmain">
+                    
+                   
                     <h5 className="main-heading">Our Company</h5>
                     <div className="underline"></div>
                     <p>
@@ -23,7 +23,10 @@ function Aboutus() {
                         to extend their reach using our platform.
                     </p>
                     <p>We are looking forward to partnering with you and helping your business take off.
-                        You can explore our website to get more updated information or contact us directly.</p>
+                        You can explore our website to get more updated information or contact us directly.
+                    </p>
+                    <hr/>
+                    <img src={logo} alt="Logo" />
                 </div>
             </section>
             <section className="section bg-light">
@@ -54,9 +57,10 @@ function Aboutus() {
                         </div>
                     </div>
                 </div>
+                <div className="underline"></div>
             </section>
 
-            <div className="underline"></div>
+            
 
             <section className="section bg-light bg-c-light">
                 <div className="container">

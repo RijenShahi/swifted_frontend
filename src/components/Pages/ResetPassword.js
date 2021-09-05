@@ -69,7 +69,7 @@ const ResetPassword = (props) => {
 
     return (
         <React.Fragment>
-            <div className="container reset">
+            <div className="container reset defaultMargin">
                 <p style={{ color: 'black', fontSize: '20px', fontWeight: 'bold' }}>Reset Your Password </p>
                 <form method="post" onSubmit={resetThePassword}>
                     <div className="form-row">

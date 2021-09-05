@@ -53,7 +53,7 @@ class EditProfile extends Component {
   render() {
     return (
       <>
-        <div className="container emp-profile text-center">
+        <div className="container emp-profile text-center defaultMargin">
           <form method="">
             <div className="row ">
                 <div className="col-3"></div> 

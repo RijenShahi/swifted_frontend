@@ -84,7 +84,7 @@ function Checkout(props) {
 
   return (
     <Container>
-    <div className="row">
+    <div className="row defaultMargin">
         <div className="col-1"></div>
       <div className="col-10 form formManual text-center">
         <form method="post" onSubmit={checkoutItem}>

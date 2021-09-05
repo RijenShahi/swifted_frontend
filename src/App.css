@@ -753,6 +753,7 @@ h1 {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
   margin-bottom: 3%;
+  margin-top: 5%;
 }
 
 .body-container > h1 {
@@ -790,12 +791,13 @@ h3 {
 
   .body-container {
     height: 100vh;
-    width: 96.65%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items:flex-end;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
+    margin-top: 10%;
   }
 
 }
@@ -809,4 +811,22 @@ h3 {
   .body-container > p {
     font-size: 30px;
   }
+}
+
+.aboutmain{
+margin-top: 5%;
+}
+
+.defaultMargin{
+  margin-top: 10%;
+}
+
+.defaultMargin2{
+  margin-top: 5%;
+}
+
+.contactCard{
+  align-items: center;
+  justify-content: center;
+  margin-top: 9%;
 }
