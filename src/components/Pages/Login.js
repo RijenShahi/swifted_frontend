@@ -142,24 +142,28 @@ class Login extends Component {
 
               <div>
                
+
+               
+              <Link to="/register" className="text-black-50">
                 <Button
                   className="fieldsec m-2"
                   variant="outlined"
                   color="secondary"
-                  data-target="#forgotPassword"
-                   data-toggle="modal"
+                  
                 >
-                  Forget Password?
+                    <h8>Don't Have An Account? REGISTER NOW!</h8>
+                  
+                  
                 </Button>
+                </Link>
               </div>
 
-              <div className="fieldsec m-2">
+              <Button className="fieldsec m-2" data-target="#forgotPassword"
+                   data-toggle="modal">
                 <p className="text-center">
-                  <Link to="/register" className="text-black-50">
-                    <h5>Don't Have An Account? REGISTER NOW!</h5>
-                  </Link>
+                Forget Password?
                 </p>
-              </div>
+              </Button>
             </div>
 
             <div className="icon">

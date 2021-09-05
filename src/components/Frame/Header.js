@@ -7,6 +7,7 @@ import {
   Nav,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logo from '../../images/logo.png'
 
 const Header = (props) => {
   let {} = props;
@@ -137,9 +138,9 @@ const Header = (props) => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed>
         <Container>
-          <Navbar.Brand href="/"><h2><b>Swifted</b></h2></Navbar.Brand>
+          <img src={logo} className="logo"/>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">{header}</Nav>
