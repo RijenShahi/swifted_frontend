@@ -70,7 +70,7 @@ Given('Test Add Product Functionality', async function (){
 
 Given('Test Update Product Functionality', async function (){
     let driver = await new Builder().forBrowser('chrome').build();
-    await driver.get('http://localhost:3000/product/insert');
+    await driver.get('http://localhost:3000/product/update');
  
     await driver.findElement(By.id('productName')).sendKeys('Latido Shoe');
     await driver.findElement(By.id('productDescription')).sendKeys('Best for Causal Wearing');
@@ -82,5 +82,32 @@ Given('Test Update Product Functionality', async function (){
  
     await driver.findElement(By.id('updateProduct')).click();
     expect(await driver.wait(until.elementLocated(By.id("home-tab"))));
+    await driver.quit();
+})
+Given('Test Become a Vendor Request', async function () {
+    let driver = await new Builder().forBrowser('chrome').build();
+    await driver.get('http://localhost:3000/request/beAVendor');
+
+    await driver.findElement(By.id('storeName')).sendKeys('Hamro Pasal');
+    await driver.findElement(By.id('address')).sendKeys('Putalisadak');
+    await driver.findElement(By.id('contact')).sendKeys('9815952466');
+    await driver.findElement(By.id('citizenship')).sendKeys('citizenship.jpg');
+    await driver.findElement(By.id('logo')).sendKeys('logo.png');
+    
+    await driver.findElement(By.id('registrationButton')).click();
+    await driver.quit();
+})
+
+Given('Test Checkout feature', async function (){
+    let driver = await new Builder().forBrowser('chrome').build();
+    await driver.get('http://localhost:3000/checkout');
+
+    await driver.findElement(By.id('firstname')).sendKeys('Khadga');
+    await driver.findElement(By.id('lastname')).sendKeys('Chy');
+    await driver.findElement(By.id('phone')).sendKeys('9815952466');
+    await driver.findElement(By.id('address')).sendKeys('Budhashanti');
+    await driver.findElement(By.id('addinfo')).sendKeys('Fine');
+
+    await driver.findElement(By.id('buy')).click();
     await driver.quit();
 })

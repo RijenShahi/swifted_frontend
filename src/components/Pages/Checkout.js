@@ -99,6 +99,7 @@ function Checkout(props) {
                 <div className="form-group">
                     <label><b>Firstname:</b>
                   <input
+                    id="firstname"
                     type="text"
                     className="form-control"
                     name="firstName"
@@ -115,6 +116,7 @@ function Checkout(props) {
                 <div className="form-group">
                 <label><b>Lastname:</b>
                   <input
+                    id="lastname"
                     type="text"
                     className="form-control"
                     name="lastName"
@@ -132,6 +134,7 @@ function Checkout(props) {
               <div className="form-group">
               <label><b>Address:</b>
                 <input
+                  id="address"
                   type="text"
                   className="form-control"
                   name="address"
@@ -150,6 +153,7 @@ function Checkout(props) {
               <div className="form-group">
               <label><b>Phone:</b>
                 <input
+                  id="phone"
                   type="text"
                   className="form-control"
                   name="phone"
@@ -165,6 +169,7 @@ function Checkout(props) {
               <div className="form-group">
               <label><b>Email:</b>
                 <input
+                  id="email"
                   type="email"
                   className="form-control"
                   name="email"
@@ -183,6 +188,7 @@ function Checkout(props) {
 
               <div className="form-group">
                 <textarea
+                  id="addinfo"
                   type="textarea"
                   className="form-control"
                   name="additionalInfo"
@@ -306,6 +312,7 @@ function Checkout(props) {
             </h4>
             <button
               type="submit"
+              id="buy"
               className="btn btn-primary btn-md w-50"
               name="checkout"
             >
